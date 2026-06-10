@@ -1,222 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Onegrid Energies | Clean Energy Solutions</title>
-  <meta name="description" content="Onegrid Energies delivers seamless, professional clean energy solutions for modern businesses and communities.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OneGrid Energies - Reducing darkness through sustainable energy, recycling innovation, and human empowerment across Nigeria.">
+<meta property="og:title" content="OneGrid Energies | We Can Reduce Darkness">
+<meta property="og:description" content="Transforming waste plastic bottles and discarded lithium-ion batteries into solar-powered solutions for underserved communities across Nigeria.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFD400">
+<title>OneGrid Energies | We Can Reduce Darkness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand">
-        <span class="brand-mark">O</span>
-        <span>Onegrid Energies</span>
-      </a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
-        <span class="theme-icon sun-icon" aria-hidden="true">☀</span>
-        <span class="theme-icon moon-icon" aria-hidden="true">☾</span>
-      </button>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
-      <nav class="site-nav" id="siteNav">
-        <a href="#vision">Vision & Mission</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#partners">Partners</a>
-        <a href="#contact">Contact Us</a>
-      </nav>
+<section class="intro-video">
+  <div class="intro-video__wrapper">
+    <video class="intro-video__media" autoplay muted loop playsinline poster="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.jpg">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+    <div class="intro-video__overlay"></div>
+    <div class="intro-video__content">
+      <span class="tag tag-yellow">OneGrid Energies</span>
+      <h1 class="intro-video__title">A brighter future starts with one loop of light.</h1>
+      <p class="intro-video__subtitle">This muted video section plays in a continuous loop before you continue down the page to the rest of the OneGrid story.</p>
+      <a class="btn btn-outline btn-sm" href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">Explore the page</a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section class="slideshow" id="highlights" aria-label="Highlights slideshow">
-      <div class="slideshow-track" id="slideshowTrack">
-        <article class="slide active" data-type="image" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80');">
-          <div class="slide-overlay">
-            <p class="slide-tag">Project Highlight</p>
-            <h2>Utility-scale solar fields built for long-term performance.</h2>
-          </div>
-        </article>
-        <article class="slide" data-type="video">
-          <video class="slide-video" muted playsinline loop preload="metadata" poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80">
-            <source src="https://cdn.coverr.co/videos/coverr-wind-turbines-at-sunset-1579/1080p.mp4" type="video/mp4">
-          </video>
-          <div class="slide-overlay">
-            <p class="slide-tag">Operational Excellence</p>
-            <h2>Smart monitoring and real-time optimization across every site.</h2>
-          </div>
-        </article>
-        <article class="slide" data-type="image" style="background-image: url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1600&q=80');">
-          <div class="slide-overlay">
-            <p class="slide-tag">Community Impact</p>
-            <h2>Hybrid energy systems powering growth in underserved regions.</h2>
-          </div>
-        </article>
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<nav id="nav" class="dark-mode">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#" onclick="navigateTo('home')">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="4"/>
+          <line x1="12" y1="2" x2="12" y2="6"/>
+          <line x1="12" y1="18" x2="12" y2="22"/>
+          <line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/>
+          <line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/>
+          <line x1="2" y1="12" x2="6" y2="12"/>
+          <line x1="18" y1="12" x2="22" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/>
+          <line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/>
+        </svg>
       </div>
-      <div class="slide-controls">
-        <button class="slide-btn" id="prevSlide" aria-label="Previous slide">‹</button>
-        <div class="slide-dots" id="slideDots"></div>
-        <button class="slide-btn" id="nextSlide" aria-label="Next slide">›</button>
-      </div>
-    </section>
+      OneGrid Energies<span style="color:var(--yellow)">.</span>
+    </a>
+    <ul class="nav-links">
+      <li><a class="nav-link" href="#" onclick="navigateTo('home'); return false;">Home</a></li>
+      <li><a class="nav-link" href="#" onclick="navigateTo('about'); return false;">About</a></li>
+      <li><a class="nav-link" href="#" onclick="navigateTo('oneplastic'); return false;">OnePlastic</a></li>
+      <li><a class="nav-link" href="#" onclick="navigateTo('stories'); return false;">Stories of Hope</a></li>
+      <li><a class="nav-link" href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-primary btn-sm" onclick="navigateTo('contact'); return false;">Partner With Us</a>
+    </div>
+    <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Powering Tomorrow, Sustainably</p>
-          <h1>Reliable, modern energy infrastructure for a greener future.</h1>
-          <p class="lead">
-            Onegrid Energies designs and delivers scalable clean-energy systems
-            that help organizations reduce costs, increase resilience, and meet sustainability goals.
-          </p>
-          <div class="hero-actions">
-            <a href="#portfolio" class="btn btn-primary">Explore Projects</a>
-            <a href="#contact" class="btn btn-outline">Talk to Us</a>
-          </div>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#" onclick="navigateTo('home'); toggleMobileNav(); return false;">Home</a>
+  <a href="#" onclick="navigateTo('about'); toggleMobileNav(); return false;">About</a>
+  <a href="#" onclick="navigateTo('oneplastic'); toggleMobileNav(); return false;">OnePlastic</a>
+  <a href="#" onclick="navigateTo('stories'); toggleMobileNav(); return false;">Stories of Hope</a>
+  <a href="#" onclick="navigateTo('contact'); toggleMobileNav(); return false;">Contact</a>
+  <a href="#" onclick="navigateTo('contact'); toggleMobileNav(); return false;" style="color:var(--black); font-weight:600; background:var(--yellow); border-radius:8px; padding:14px; margin-top:12px; border-bottom:none;">Partner With Us</a>
+</div>
+
+<!-- WhatsApp Float -->
+<a class="whatsapp-float" href="https://wa.me/2347120003628" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ════════════════ HOME PAGE ═══════════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="text-xs" style="color:var(--yellow); letter-spacing:0.1em;">Renewable Energy · Social Impact · Nigeria</span>
+      </div>
+      <h1 class="display-xl hero-headline">
+        We Can<br>
+        <span class="yellow">Reduce</span><br>
+        Darkness.
+      </h1>
+      <p class="hero-subheadline">
+        Transforming waste into light, empowering communities,<br>
+        and creating a future where no family is left in darkness.
+      </p>
+      <p class="hero-body">
+        OneGrid Energies transforms waste plastic bottles and discarded lithium-ion batteries into solar-powered solutions that provide clean energy, economic opportunity, healthcare support, and hope for underserved communities across Nigeria.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#" onclick="document.getElementById('impact-section').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Explore Our Impact
+        </a>
+        <a class="btn btn-outline-white" href="#" onclick="navigateTo('contact'); return false;">Partner With Us</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">12K+</div>
+        <div class="hero-stat-label">Lives Impacted</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2000+</div>
+        <div class="hero-stat-label">Lanterns Distributed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">40+</div>
+        <div class="hero-stat-label">Green Jobs Created</div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION -->
+  <section class="vision-section">
+    <div class="vision-grid">
+      <div class="vision-card reveal">
+        <div class="vision-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
-        <div class="hero-card">
-          <h3>What We Deliver</h3>
-          <ul>
-            <li>Solar and hybrid grid systems</li>
-            <li>Battery storage optimization</li>
-            <li>Industrial energy consulting</li>
-            <li>Smart monitoring & lifecycle support</li>
-          </ul>
-        </div>
+        <div class="vision-label">Our Vision</div>
+        <h2 class="display-md" style="margin-bottom:20px;">To Inspire A Brighter Future For Humanity</h2>
+        <p class="text-lg muted">Creating a world where no community is left in darkness — through sustainable energy, innovation, and human connection.</p>
       </div>
-    </section>
-
-    <section class="section" id="vision">
-      <div class="container">
-        <h2>Vision & Mission</h2>
-        <div class="split">
-          <article class="card">
-            <h3>Our Vision</h3>
-            <p>
-              To become the most trusted clean-energy partner in emerging and
-              established markets, accelerating global transition to sustainable power.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Our Mission</h3>
-            <p>
-              We provide future-ready energy solutions through innovation, precision engineering,
-              and dependable support so every client can operate more efficiently and responsibly.
-            </p>
-          </article>
+      <div class="vision-card reveal reveal-delay-2">
+        <div class="vision-card-icon" style="background:#F0FFF4;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
+        <div class="vision-label">Our Mission</div>
+        <h2 class="display-md" style="margin-bottom:20px;">Reducing Darkness Through Innovation</h2>
+        <p class="text-lg muted">Sustainable energy, recycling innovation, and human empowerment — working together to eliminate energy poverty across Nigeria.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section section-alt" id="portfolio">
-      <div class="container">
-        <h2>Portfolio</h2>
-        <div class="grid cards-3">
-          <article class="card project">
-            <h3>Metro Commercial Solar Upgrade</h3>
-            <p>2.4MW rooftop solar integration across six business facilities.</p>
-            <span>Energy Yield: +38%</span>
-          </article>
-          <article class="card project">
-            <h3>Industrial Storage Retrofit</h3>
-            <p>Battery storage deployment to stabilize peak-demand operations.</p>
-            <span>Cost Reduction: 24% annually</span>
-          </article>
-          <article class="card project">
-            <h3>Rural Microgrid Rollout</h3>
-            <p>Hybrid microgrid systems delivering reliable power to remote hubs.</p>
-            <span>Uptime: 99.4%</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="gallery">
-      <div class="container">
-        <h2>Gallery</h2>
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80" alt="Engineers inspecting a large solar array">
-            <span>Solar Array Commissioning</span>
-          </figure>
-          <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" alt="Battery storage and renewable power setup">
-            <span>Battery Storage Facility</span>
-          </figure>
-          <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1200&q=80" alt="Team using a remote energy monitoring dashboard">
-            <span>Remote Monitoring Center</span>
-          </figure>
-          <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80" alt="Smart grid installation with power infrastructure">
-            <span>Smart Grid Installation</span>
-          </figure>
-          <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1493130952181-47e36589f64d?auto=format&fit=crop&w=1200&q=80" alt="Operations and maintenance in an energy plant">
-            <span>Operations & Maintenance</span>
-          </figure>
-          <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1497436072909-f5e4be5584d2?auto=format&fit=crop&w=1200&q=80" alt="Community-focused clean power project">
-            <span>Community Power Project</span>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="partners">
-      <div class="container">
-        <h2>Partners</h2>
-        <p class="section-intro">
-          We collaborate with technology leaders, engineering firms, and sustainability organizations.
-        </p>
-        <div class="partners-grid">
-          <div class="partner">HelioWorks</div>
-          <div class="partner">VoltAxis</div>
-          <div class="partner">EcoGrid Labs</div>
-          <div class="partner">Nova Storage</div>
-          <div class="partner">Brightline EPC</div>
-          <div class="partner">FutureWatts Foundation</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <div class="split">
-          <div class="card contact-card">
-            <p><strong>Email:</strong> connect@onegridenergies.com</p>
-            <p><strong>Phone:</strong> +1 (800) 314-7743</p>
-            <p><strong>Address:</strong> 420 Gridline Avenue, Houston, TX</p>
-          </div>
-          <form class="card contact-form" id="contactForm">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" required>
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@company.com" required>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project" required></textarea>
-
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p class="form-status" id="formStatus" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
+  <!-- OUR STORY -->
+  <section class="section story-section">
     <div class="container">
-      <p>© <span id="year"></span> Onegrid Energies. All rights reserved.</p>
+      <div class="grid-2">
+        <div class="reveal">
+          <div class="story-visual">
+            <div class="story-visual-placeholder">🌟</div>
+            <div class="story-quote-card">
+              <q>I saw communities drowning in darkness and I knew — we had the tools to change that.</q>
+              <cite>— Valentine Nnamani, Founder</cite>
+            </div>
+          </div>
+        </div>
+        <div class="story-content reveal reveal-delay-2">
+          <span class="tag tag-yellow" style="margin-bottom:24px;">Our Founder's Story</span>
+          <h2 class="display-lg" style="margin-bottom:28px;">Born From Darkness, Built For Light</h2>
+          <p>Valentine Nnamani grew up witnessing firsthand the crippling effects of energy poverty in Nigeria. Studying, working, healing — all made harder, sometimes impossible, by the absence of reliable electricity. He knew something had to change.</p>
+          <p>In 2019, with a bold conviction and zero certainty of success, Valentine founded OneGrid Energies with a single mission: reduce darkness. Not just the physical darkness of nights without power, but the darkness of limited opportunity, of preventable suffering, of communities overlooked by the world's progress.</p>
+          <p>His innovation — transforming waste plastic bottles and discarded lithium-ion batteries from old laptops into affordable, solar-powered lanterns — turned a waste problem into a light solution. What began as a proof of concept became a movement.</p>
+          <p>Today, OneGrid Energies has touched over 12,000 lives across Nigeria, distributed 2,000+ lanterns, created 40+ green jobs, and sparked a model that the world is beginning to notice.</p>
+          <div class="story-links">
+            <a href="https://linkedin.com" target="_blank" class="btn btn-outline btn-sm" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              Valentine on LinkedIn
+            </a>
+            <a href="https://youtube.com" target="_blank" class="btn btn-outline btn-sm" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              Watch Our Story
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- WHAT WE DO -->
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag" style="background:rgba(255,212,0,0.15); color:var(--yellow); margin-bottom:16px;">What We Do</span>
+        <h2 class="display-lg" style="color:white; margin-bottom:16px;">Five Pathways<br>Out Of Darkness</h2>
+        <p class="section-subtitle">From waste to watts — every initiative we run creates a ripple of impact far beyond its immediate reach.</p>
+      </div>
+    </div>
+    <div class="services-grid reveal">
+      <!-- OnePlastic - Featured -->
+      <div class="service-card services-featured">
+        <div style="padding:clamp(32px,3vw,48px); display:flex; flex-direction:column; justify-content:space-between; border-right:1px solid rgba(255,255,255,0.06);">
+          <div>
+            <div class="service-icon" style="width:64px; height:64px; border-radius:18px; background:rgba(255,212,0,0.12); margin-bottom:28px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" width="32" height="32"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <div class="service-tagline">OnePlastic Initiative</div>
+            <h3 style="font-size:clamp(22px,2.5vw,32px);">Turning Waste<br>Into Light</h3>
+          </div>
+          <div>
+            <p style="margin-bottom:24px; font-size:15px;">We collect waste plastic bottles and discarded lithium-ion laptop batteries, recycling them into affordable solar-powered lanterns that bring safe, clean light to homes, schools, and healthcare centres.</p>
+            <a href="#" onclick="navigateTo('oneplastic'); return false;" style="font-size:14px;">
+              Learn More About OnePlastic
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline; vertical-align:-3px; margin-left:6px; width:16px; height:16px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+        <div style="padding:clamp(32px,3vw,48px); background:rgba(255,212,0,0.04); display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="service-icon" style="width:64px; height:64px; border-radius:18px; background:rgba(255,212,0,0.12); margin-bottom:28px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" width="32" height="32"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="service-tagline">OneHealth Programme</div>
+            <h3 style="font-size:clamp(22px,2.5vw,32px);">Hope For Safe<br>Childbirth</h3>
+          </div>
+          <div>
+            <p style="margin-bottom:24px; font-size:15px;">Solar lanterns delivered to rural maternity clinics so that midwives can safely deliver babies at night. Over 7,000 improved healthcare outcomes and counting.</p>
+            <a href="#" onclick="navigateTo('about'); return false;" style="font-size:14px;">
+              Learn About OneHealth
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline; vertical-align:-3px; margin-left:6px; width:16px; height:16px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- OneBox -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="service-tagline">OneBox</div>
+        <h3>Lighting The Future After Sunset</h3>
+        <p>Solar-powered charging stations embedded in strategically placed community boxes — bringing connectivity and commerce to off-grid neighbourhoods.</p>
+        <a href="#" onclick="navigateTo('oneplastic'); return false;">Explore OneBox <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="service-tagline">Solar Installations</div>
+        <h3>Reliable Energy Solutions</h3>
+        <p>Custom solar installations for homes, schools, churches, healthcare centres and small businesses — clean, reliable power where the grid fails.</p>
+        <a href="#" onclick="navigateTo('contact'); return false;">Get A Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="service-tagline">Training Academy</div>
+        <h3>Empowering The Next Generation</h3>
+        <p>Practical renewable energy training — turning young Nigerians into solar technicians, entrepreneurs, and climate innovators.</p>
+        <a href="#" onclick="navigateTo('about'); return false;">Join The Academy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="section impact-section" id="impact-section">
+    <div class="impact-bg-text">IMPACT</div>
+    <div class="container" style="position:relative;">
+      <div class="section-header impact-header reveal">
+        <span class="tag tag-black" style="margin-bottom:16px;">Our Impact</span>
+        <h2 class="display-lg">The Numbers<br>Tell The Story</h2>
+        <p style="color:rgba(0,0,0,0.6); max-width:500px; margin-top:16px;">Every lantern distributed, every job created, every tonne of CO₂ avoided is a life changed — and we're just getting started.</p>
+      </div>
+      <div class="impact-grid" id="impact-grid">
+        <div class="impact-card reveal">
+          <div class="impact-divider"></div>
+          <div class="impact-num"><span class="counter" data-target="2000">0</span>+</div>
+          <div class="impact-label">Lanterns Distributed</div>
+        </div>
+        <div class="impact-card reveal reveal-delay-1">
+          <div class="impact-divider"></div>
+          <div class="impact-num"><span class="counter" data-target="12000">0</span>+</div>
+          <div class="impact-label">Lives Impacted</div>
+        </div>
+        <div class="impact-card reveal reveal-delay-2">
+          <div class="impact-divider"></div>
+          <div class="impact-num"><span class="counter" data-target="10">0</span>K+</div>
+          <div class="impact-label">Waste Plastics Recycled</div>
+        </div>
+        <div class="impact-card reveal reveal-delay-3">
+          <div class="impact-divider"></div>
+          <div class="impact-num"><span class="counter" data-target="2000">0</span>+</div>
+          <div class="impact-label">Tonnes CO₂ Avoided Yearly</div>
+        </div>
+        <div class="impact-card reveal">
+          <div class="impact-divider"></div>
+          <div class="impact-num">$<span class="counter" data-target="616">0</span>K</div>
+          <div class="impact-label">Fuel Savings Generated</div>
+        </div>
+        <div class="impact-card reveal reveal-delay-1">
+          <div class="impact-divider"></div>
+          <div class="impact-num"><span class="counter" data-target="5">0</span>M+</div>
+          <div class="impact-label">Hours of Clean Light</div>
+        </div>
+        <div class="impact-card reveal reveal-delay-2">
+          <div class="impact-divider"></div>
+          <div class="impact-num"><span class="counter" data-target="7000">0</span>+</div>
+          <div class="impact-label">Improved Healthcare Outcomes</div>
+        </div>
+        <div class="impact-card reveal reveal-delay-3">
+          <div class="impact-divider"></div>
+          <div class="impact-num"><span class="counter" data-target="40">0</span>+</div>
+          <div class="impact-label">Green Jobs Created</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag tag-outline" style="margin-bottom:16px;">Gallery</span>
+        <h2 class="display-lg" style="margin-bottom:16px;">Light In Action</h2>
+        <p class="section-subtitle muted">From workshop to community — a glimpse of OneGrid Energies at work across Nigeria.</p>
+      </div>
+      <div class="gallery-filters reveal">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+        <button class="filter-btn" onclick="filterGallery('oneplastic', this)">OnePlastic</button>
+        <button class="filter-btn" onclick="filterGallery('onehealth', this)">OneHealth</button>
+        <button class="filter-btn" onclick="filterGallery('onebox', this)">OneBox</button>
+        <button class="filter-btn" onclick="filterGallery('solar', this)">Solar</button>
+        <button class="filter-btn" onclick="filterGallery('training', this)">Training</button>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item wide tall" data-cat="oneplastic">
+          <div class="gallery-item-inner">♻️</div>
+          <div class="gallery-overlay"><span>OnePlastic Workshop</span></div>
+        </div>
+        <div class="gallery-item" data-cat="onehealth">
+          <div class="gallery-item-inner">🏥</div>
+          <div class="gallery-overlay"><span>Healthcare Delivery</span></div>
+        </div>
+        <div class="gallery-item" data-cat="onebox">
+          <div class="gallery-item-inner">📦</div>
+          <div class="gallery-overlay"><span>Community OneBox</span></div>
+        </div>
+        <div class="gallery-item wide" data-cat="solar">
+          <div class="gallery-item-inner">☀️</div>
+          <div class="gallery-overlay"><span>Solar Installation</span></div>
+        </div>
+        <div class="gallery-item" data-cat="training">
+          <div class="gallery-item-inner">🎓</div>
+          <div class="gallery-overlay"><span>Training Academy</span></div>
+        </div>
+        <div class="gallery-item" data-cat="oneplastic">
+          <div class="gallery-item-inner">💡</div>
+          <div class="gallery-overlay"><span>Lantern Distribution</span></div>
+        </div>
+        <div class="gallery-item tall" data-cat="onehealth">
+          <div class="gallery-item-inner">🌙</div>
+          <div class="gallery-overlay"><span>Night Care</span></div>
+        </div>
+        <div class="gallery-item" data-cat="solar">
+          <div class="gallery-item-inner">🔆</div>
+          <div class="gallery-overlay"><span>School Solar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="section partners-section">
+    <div class="container">
+      <p class="partners-label">Partners & Supporters</p>
+      <div class="partners-track">
+        <div class="partners-inner">
+          <div class="partner-logo">UNDP Nigeria</div>
+          <div class="partner-logo">Shell Nigeria</div>
+          <div class="partner-logo">Anambra State Govt</div>
+          <div class="partner-logo">SDG Fund</div>
+          <div class="partner-logo">Tony Elumelu Foundation</div>
+          <div class="partner-logo">MTN Foundation</div>
+          <div class="partner-logo">Access Bank</div>
+          <div class="partner-logo">UNDP Nigeria</div>
+          <div class="partner-logo">Shell Nigeria</div>
+          <div class="partner-logo">Anambra State Govt</div>
+          <div class="partner-logo">SDG Fund</div>
+          <div class="partner-logo">Tony Elumelu Foundation</div>
+          <div class="partner-logo">MTN Foundation</div>
+          <div class="partner-logo">Access Bank</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT PREVIEW -->
+  <section class="section contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="tag" style="background:rgba(255,212,0,0.15); color:var(--yellow); margin-bottom:24px;">Get In Touch</span>
+          <h2 class="display-lg" style="color:white; margin-bottom:24px;">Ready To Reduce<br>Darkness Together?</h2>
+          <p style="color:rgba(255,255,255,0.5); margin-bottom:40px; font-size:15px; line-height:1.7;">Whether you're looking to partner, fund, invest, or simply learn more — we'd love to hear from you.</p>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value">071 2000 3628</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">onegridenergies@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Address</div>
+              <div class="contact-info-value">No 89 Upper New Market Rd,<br>Onitsha, Anambra State, Nigeria</div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a class="social-link" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a class="social-link" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a class="social-link" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a class="social-link" href="#" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-lg); padding:clamp(28px,3vw,44px);">
+            <h3 style="color:white; font-size:20px; font-weight:600; margin-bottom:28px;">Send Us A Message</h3>
+            <div class="contact-form-group">
+              <label>Full Name</label>
+              <input class="contact-input" type="text" placeholder="Your name">
+            </div>
+            <div class="contact-form-group">
+              <label>Email Address</label>
+              <input class="contact-input" type="email" placeholder="your@email.com">
+            </div>
+            <div class="contact-form-group">
+              <label>Subject</label>
+              <input class="contact-input" type="text" placeholder="How can we help?">
+            </div>
+            <div class="contact-form-group">
+              <label>Message</label>
+              <textarea class="contact-textarea" placeholder="Tell us about your interest..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="handleContactSubmit(event)">
+              Send Message
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ════════════════ ABOUT PAGE ══════════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <div class="page-hero-pattern"></div>
+      <div class="page-hero-glow"></div>
+    </div>
+    <div class="container" style="position:relative; padding-top:140px; padding-bottom:80px;">
+      <span class="tag tag-yellow" style="margin-bottom:24px;">Our Story</span>
+      <h1 class="display-xl" style="color:white; max-width:800px; margin-bottom:28px;">We Believe Small<br><span style="color:var(--yellow);">Innovations</span><br>Create Big Change</h1>
+      <p style="color:rgba(255,255,255,0.6); max-width:580px; font-size:clamp(16px,1.5vw,19px); line-height:1.7;">From a single spark of conviction in Onitsha to 12,000 lives touched across Nigeria — this is the story of OneGrid Energies.</p>
+    </div>
+  </div>
+
+  <!-- JOURNEY -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <span class="tag tag-outline" style="margin-bottom:24px;">Our Journey</span>
+          <h2 class="display-lg" style="margin-bottom:32px;">From Conviction To Movement</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2019</div>
+              <div class="timeline-title">The Spark</div>
+              <div class="timeline-desc">Valentine Nnamani registers OneGrid Energies with a mission to reduce energy poverty in Nigeria through innovation and recycling.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-title">OnePlastic Is Born</div>
+              <div class="timeline-desc">First prototype lanterns built from waste plastic and discarded laptop batteries. The world's attention begins to turn.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2021</div>
+              <div class="timeline-title">OneHealth Launch</div>
+              <div class="timeline-desc">Partnership with rural maternity clinics. Solar lanterns delivered to help midwives work safely after sunset.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2022</div>
+              <div class="timeline-title">Community Scale</div>
+              <div class="timeline-desc">OneBox charging stations deployed. Training Academy launched. 40+ green jobs created for young Nigerians.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2024+</div>
+              <div class="timeline-title">National Expansion</div>
+              <div class="timeline-desc">12,000+ lives impacted. Investors, NGOs and government agencies take notice. The movement grows.</div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div style="background:var(--gray-50); border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; font-size:80px;">🌍</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section" style="background:var(--gray-50);">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="tag tag-yellow" style="margin-bottom:16px;">Our Values</span>
+        <h2 class="display-lg" style="margin-bottom:16px;">What We Stand For</h2>
+        <p class="section-subtitle muted">These principles guide every decision, every lantern, every life we touch.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <span class="value-icon">♻️</span>
+          <div class="value-title">Circular Innovation</div>
+          <div class="value-desc">We believe waste is a resource waiting to be unlocked. Every discarded battery, every plastic bottle is an opportunity.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <span class="value-icon">🤝</span>
+          <div class="value-title">Community First</div>
+          <div class="value-desc">We design for people, not boardrooms. Every solution must work for the communities it serves before it works for anyone else.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <span class="value-icon">💡</span>
+          <div class="value-title">Radical Simplicity</div>
+          <div class="value-desc">The best solutions are the ones anyone can use, anyone can fix, and anyone can replicate. Complexity is a barrier to impact.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <span class="value-icon">🌱</span>
+          <div class="value-title">Environmental Integrity</div>
+          <div class="value-desc">Clean energy delivered by clean means. We hold ourselves to the same environmental standards we advocate for.</div>
+        </div>
+        <div class="value-card reveal">
+          <span class="value-icon">🔥</span>
+          <div class="value-title">Youth Empowerment</div>
+          <div class="value-desc">Africa's greatest resource is her young people. We invest in them as technicians, entrepreneurs, and climate leaders.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <span class="value-icon">📊</span>
+          <div class="value-title">Transparent Impact</div>
+          <div class="value-desc">We count every lantern, measure every tonne, and report every outcome with honesty — because trust is earned, not assumed.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUSTAINABILITY -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:clamp(40px,6vw,100px);">
+        <div class="reveal">
+          <span class="tag tag-outline" style="margin-bottom:24px;">Sustainability</span>
+          <h2 class="display-lg" style="margin-bottom:24px;">Built To Last,<br>Built To Scale</h2>
+          <p style="color:var(--gray-600); margin-bottom:20px; line-height:1.8;">OneGrid Energies isn't built on charity — it's built on circular economics. Every lantern sold funds the next one. Every charging station generates revenue that sustains the community that hosts it.</p>
+          <p style="color:var(--gray-600); margin-bottom:20px; line-height:1.8;">Our model proves that social impact and commercial viability are not in tension — they amplify each other. We're a social enterprise designed to outlast its funding rounds.</p>
+          <p style="color:var(--gray-600); line-height:1.8;">By diverting waste plastics and batteries from landfills, we address two environmental crises simultaneously: solid waste pollution and energy poverty. One problem, one solution, twice the impact.</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div style="background:var(--black); border-radius:var(--radius-lg); padding:clamp(32px,4vw,56px); color:white;">
+            <h3 style="color:var(--yellow); font-size:14px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:32px;">By The Numbers</h3>
+            <div style="display:flex; flex-direction:column; gap:28px;">
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                  <span style="font-size:14px; color:rgba(255,255,255,0.6);">CO₂ Emissions Avoided</span>
+                  <span style="font-size:14px; font-weight:600; color:var(--yellow);">2,000+ tonnes/yr</span>
+                </div>
+                <div style="height:4px; background:rgba(255,255,255,0.1); border-radius:2px;">
+                  <div style="height:100%; width:78%; background:var(--yellow); border-radius:2px; transition:width 1s;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                  <span style="font-size:14px; color:rgba(255,255,255,0.6);">Plastics Diverted From Landfill</span>
+                  <span style="font-size:14px; font-weight:600; color:var(--yellow);">10,000+</span>
+                </div>
+                <div style="height:4px; background:rgba(255,255,255,0.1); border-radius:2px;">
+                  <div style="height:100%; width:62%; background:var(--yellow); border-radius:2px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                  <span style="font-size:14px; color:rgba(255,255,255,0.6);">Healthcare Outcomes Improved</span>
+                  <span style="font-size:14px; font-weight:600; color:var(--yellow);">7,000+</span>
+                </div>
+                <div style="height:4px; background:rgba(255,255,255,0.1); border-radius:2px;">
+                  <div style="height:100%; width:55%; background:var(--yellow); border-radius:2px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                  <span style="font-size:14px; color:rgba(255,255,255,0.6);">Household Income Increase</span>
+                  <span style="font-size:14px; font-weight:600; color:var(--yellow);">$6,000+</span>
+                </div>
+                <div style="height:4px; background:rgba(255,255,255,0.1); border-radius:2px;">
+                  <div style="height:100%; width:42%; background:var(--yellow); border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--yellow); padding:80px 0;">
+    <div class="container" style="text-align:center;">
+      <h2 class="display-lg" style="margin-bottom:20px;">Join The Movement</h2>
+      <p style="color:rgba(0,0,0,0.6); max-width:520px; margin:0 auto 36px; font-size:18px; line-height:1.6;">Whether you're an investor, a donor, an NGO, or just someone who believes no child should study by candlelight — there is a place for you in this story.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="#" class="btn btn-outline" onclick="navigateTo('contact'); return false;" style="font-size:16px; padding:16px 36px;">Get Involved</a>
+        <a href="#" class="btn" style="background:var(--black); color:white; font-size:16px; padding:16px 36px;" onclick="navigateTo('stories'); return false;">Read Stories of Hope</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-about -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ════════════════ ONEPLASTIC PAGE ═════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page" id="page-oneplastic">
+
+  <div class="page-hero" style="min-height:80vh;">
+    <div class="page-hero-bg">
+      <div class="page-hero-pattern"></div>
+      <div class="page-hero-glow" style="top:10%; right:-10%; left:auto;"></div>
+    </div>
+    <div class="container" style="position:relative; padding-top:140px; padding-bottom:80px;">
+      <span class="tag tag-yellow" style="margin-bottom:24px;">OnePlastic Initiative</span>
+      <h1 class="display-xl" style="color:white; max-width:920px; margin-bottom:28px;">We Transform <span style="color:var(--yellow);">Plastic Waste</span> &<br>Discarded Batteries Into<br>Solar-Powered Lanterns</h1>
+      <p style="color:rgba(255,255,255,0.6); max-width:620px; font-size:clamp(16px,1.5vw,19px); line-height:1.7;">Two waste streams. One innovation. Thousands of lives illuminated. The OnePlastic initiative is proof that the solution to energy poverty was hiding in plain sight — in our rubbish bins.</p>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:clamp(40px,6vw,100px);">
+        <div class="reveal">
+          <span class="tag tag-outline" style="margin-bottom:24px;">The Problem & Solution</span>
+          <h2 class="display-lg" style="margin-bottom:24px;">Two Crises.<br>One Answer.</h2>
+          <p style="color:var(--gray-600); margin-bottom:20px; line-height:1.8;">Over 90 million Nigerians lack access to reliable electricity. Meanwhile, millions of tonnes of plastic waste choke our communities, and discarded laptop batteries pile up in e-waste dumps — both causing immense environmental harm.</p>
+          <p style="color:var(--gray-600); margin-bottom:20px; line-height:1.8;">OnePlastic takes these two problems and turns them into a single elegant solution: affordable, durable solar lanterns built entirely from waste materials, distributed to families, schools, and healthcare centres that need them most.</p>
+          <p style="color:var(--gray-600); line-height:1.8;">Each lantern costs a fraction of what kerosene costs over a year, charges via a small solar panel, and lasts for thousands of hours. It replaces toxic flame with clean light — and transforms waste into wealth.</p>
+        </div>
+        <div class="reveal reveal-delay-2" style="display:flex; flex-direction:column; gap:16px;">
+          <div style="background:var(--gray-50); border-radius:var(--radius-md); padding:32px; display:flex; align-items:center; gap:20px;">
+            <div style="font-size:36px; flex-shrink:0;">🏭</div>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Waste Collection</div>
+              <div style="font-size:14px; color:var(--gray-600);">Plastic bottles & discarded laptop batteries collected from communities and e-waste centres.</div>
+            </div>
+          </div>
+          <div style="background:var(--gray-50); border-radius:var(--radius-md); padding:32px; display:flex; align-items:center; gap:20px;">
+            <div style="font-size:36px; flex-shrink:0;">⚙️</div>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Manufacturing</div>
+              <div style="font-size:14px; color:var(--gray-600);">Batteries tested, reconditioned and assembled into lantern units with solar charging systems.</div>
+            </div>
+          </div>
+          <div style="background:var(--gray-50); border-radius:var(--radius-md); padding:32px; display:flex; align-items:center; gap:20px;">
+            <div style="font-size:36px; flex-shrink:0;">🌞</div>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Distribution</div>
+              <div style="font-size:14px; color:var(--gray-600);">Lanterns sold, donated, or deployed through community charging stations at subsidized cost.</div>
+            </div>
+          </div>
+          <div style="background:var(--yellow); border-radius:var(--radius-md); padding:32px; display:flex; align-items:center; gap:20px;">
+            <div style="font-size:36px; flex-shrink:0;">💡</div>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Impact</div>
+              <div style="font-size:14px; color:rgba(0,0,0,0.7);">Families read, study, work and heal safely after dark — year after year.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTION FLOW -->
+  <section class="section" style="background:var(--gray-50);">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="tag tag-yellow" style="margin-bottom:16px;">Manufacturing Process</span>
+        <h2 class="display-lg" style="margin-bottom:16px;">Lantern Production Flow</h2>
+        <p class="section-subtitle muted">From street waste to clean light — five steps that change everything.</p>
+      </div>
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <div class="process-step-num">1</div>
+          <div class="process-step-title">Waste Collection</div>
+          <div class="process-step-desc">Plastic bottles & old laptop batteries collected from homes, repair shops and e-waste dumps</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">2</div>
+          <div class="process-step-title">Sorting & Testing</div>
+          <div class="process-step-desc">Batteries tested for viability; plastics sorted by grade and suitability for housing</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">3</div>
+          <div class="process-step-title">Assembly</div>
+          <div class="process-step-desc">LED elements, solar panels, and reconditioned battery packs assembled into durable units</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">4</div>
+          <div class="process-step-title">Quality Control</div>
+          <div class="process-step-desc">Each unit tested for brightness, charge efficiency, and durability before distribution</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">5</div>
+          <div class="process-step-title">Distribution</div>
+          <div class="process-step-desc">Delivered to households, clinics, schools, and charging station entrepreneurs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY CHARGING STATIONS -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <div style="background:var(--black); border-radius:var(--radius-lg); aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:80px;">📦</div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <span class="tag tag-outline" style="margin-bottom:24px;">OneBox</span>
+          <h2 class="display-lg" style="margin-bottom:24px;">Community Charging Stations</h2>
+          <p style="color:var(--gray-600); margin-bottom:20px; line-height:1.8;">The OneBox charging station is a solar-powered hub placed at the heart of a community. Managed by a local entrepreneur — often a woman or young person — it serves as a rental point where households can hire a lantern for the night.</p>
+          <p style="color:var(--gray-600); margin-bottom:20px; line-height:1.8;">The station manager earns income. The community gets light. OneGrid gets operational revenue. Everyone wins. It's the circular economy in action, at the neighbourhood scale.</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px;">
+            <div style="background:var(--gray-50); padding:20px; border-radius:var(--radius-sm);">
+              <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:var(--black); margin-bottom:4px;">₦500–₦800</div>
+              <div style="font-size:13px; color:var(--gray-600);">Daily rental per lantern</div>
+            </div>
+            <div style="background:var(--gray-50); padding:20px; border-radius:var(--radius-sm);">
+              <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:var(--black); margin-bottom:4px;">10–15</div>
+              <div style="font-size:13px; color:var(--gray-600);">Lanterns per station</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVENUE MODEL -->
+  <section class="section" style="background:var(--black); color:white;">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="tag" style="background:rgba(255,212,0,0.15); color:var(--yellow); margin-bottom:16px;">Business Model</span>
+        <h2 class="display-lg" style="color:white; margin-bottom:16px;">Multiple Revenue Streams</h2>
+        <p style="color:rgba(255,255,255,0.5); max-width:500px; margin:0 auto;">A self-sustaining circular economy model that grows with every lantern deployed.</p>
+      </div>
+      <div class="revenue-grid reveal" style="margin-top:48px;">
+        <div class="revenue-card" style="background:#111; border-color:#222;">
+          <div class="revenue-amount" style="color:var(--yellow);">₦3,500–₦5,000</div>
+          <div class="revenue-label" style="color:rgba(255,255,255,0.5); margin-bottom:16px;">Lantern sale price per unit</div>
+          <div style="font-size:14px; color:rgba(255,255,255,0.4); line-height:1.7;">Direct sale of OnePlastic solar lanterns to households, schools, NGOs, and government programmes.</div>
+        </div>
+        <div class="revenue-card" style="background:#111; border-color:#222;">
+          <div class="revenue-amount" style="color:var(--yellow);">₦500/night</div>
+          <div class="revenue-label" style="color:rgba(255,255,255,0.5); margin-bottom:16px;">Charging station rental income</div>
+          <div style="font-size:14px; color:rgba(255,255,255,0.4); line-height:1.7;">Revenue share from community OneBox stations. Operators earn income; OneGrid earns a platform margin.</div>
+        </div>
+        <div class="revenue-card" style="background:#111; border-color:#222;">
+          <div class="revenue-amount" style="color:var(--yellow);">B2B</div>
+          <div class="revenue-label" style="color:rgba(255,255,255,0.5); margin-bottom:16px;">Institutional & CSR supply</div>
+          <div style="font-size:14px; color:rgba(255,255,255,0.4); line-height:1.7;">Bulk supply to NGOs, healthcare facilities, government agencies, and corporate CSR programmes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCALABILITY -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag tag-outline" style="margin-bottom:16px;">Growth & Scale</span>
+        <h2 class="display-lg" style="margin-bottom:16px;">Built For 10x</h2>
+        <p class="section-subtitle muted" style="max-width:600px;">The OnePlastic model has been validated. Now it's time to scale.</p>
+      </div>
+      <div class="grid-3 reveal">
+        <div style="padding:32px; background:var(--gray-50); border-radius:var(--radius-md);">
+          <div style="font-size:40px; margin-bottom:16px;">🏙️</div>
+          <h3 style="margin-bottom:12px;">36 States Target</h3>
+          <p style="font-size:14px; color:var(--gray-600); line-height:1.7;">With 90M+ Nigerians without reliable power, the addressable market for OnePlastic is massive and largely untapped.</p>
+        </div>
+        <div style="padding:32px; background:var(--gray-50); border-radius:var(--radius-md);">
+          <div style="font-size:40px; margin-bottom:16px;">🌍</div>
+          <h3 style="margin-bottom:12px;">Pan-African Vision</h3>
+          <p style="font-size:14px; color:var(--gray-600); line-height:1.7;">The same waste-to-energy model applies across sub-Saharan Africa — 600M+ people without electricity, abundant waste feedstock.</p>
+        </div>
+        <div style="padding:32px; background:var(--gray-50); border-radius:var(--radius-md);">
+          <div style="font-size:40px; margin-bottom:16px;">🤖</div>
+          <h3 style="margin-bottom:12px;">Technology Upgrade</h3>
+          <p style="font-size:14px; color:var(--gray-600); line-height:1.7;">Next-generation lanterns with USB charging, phone charging ports, and IoT connectivity currently in development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-oneplastic -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ════════════════ STORIES PAGE ════════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page" id="page-stories">
+
+  <div class="story-hero-section">
+    <div style="position:absolute; inset:0; background:linear-gradient(135deg, #0A0A0A, #1A1500); z-index:0;"></div>
+    <div style="position:absolute; inset:0; opacity:0.05; background-image:radial-gradient(circle at 2px 2px, var(--yellow) 1px, transparent 0); background-size:40px 40px; z-index:1;"></div>
+    <div style="position:absolute; top:15%; right:5%; width:400px; height:400px; background:radial-gradient(circle, rgba(255,212,0,0.12) 0%, transparent 70%); border-radius:50%; z-index:1;"></div>
+    <div class="container" style="position:relative; z-index:2; color:white;">
+      <span class="tag tag-yellow" style="margin-bottom:28px;">Stories of Hope</span>
+      <h1 class="display-xl" style="color:white; max-width:800px; margin-bottom:28px;">
+        While We Are Here,<br>We Can <span style="color:var(--yellow);">Reduce</span><br>Darkness.
+      </h1>
+      <p style="color:rgba(255,255,255,0.6); max-width:560px; font-size:clamp(16px,1.5vw,19px); line-height:1.7;">These are not statistics. These are people. These are the faces behind the numbers — and their stories remind us why none of this work can stop.</p>
+    </div>
+  </div>
+
+  <!-- STORY 1 -->
+  <div class="story-card">
+    <div class="story-card-visual">
+      <div class="story-card-visual-inner">⛪</div>
+    </div>
+    <div class="story-card-content">
+      <span class="tag tag-yellow" style="margin-bottom:20px;">Story 01</span>
+      <p class="story-card-quote">"Before this lantern, our evening service ended at sunset. Now we worship into the night, and our congregation has tripled."</p>
+      <h2 class="display-md" style="margin-bottom:16px;">Pastor Joel's Story</h2>
+      <p class="story-card-body">Pastor Joel leads a congregation in a semi-rural community outside Onitsha where power outages last days at a time. Church services, prayer meetings, and community gatherings were all constrained by the sunset. Kerosene lamps filled the building with smoke and fire risk.</p>
+      <p class="story-card-body">When OneGrid Energies arrived with OnePlastic solar lanterns, everything changed. The church now runs evening youth programmes, literacy classes, and community meetings — long after dark, safely and cleanly. Pastor Joel has since become an unofficial ambassador for OnePlastic in his community.</p>
+      <div class="story-impact">
+        <div class="story-impact-item">
+          <div class="story-impact-num">3×</div>
+          <div class="story-impact-label">Congregation growth</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">0</div>
+          <div class="story-impact-label">Kerosene fires</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">Daily</div>
+          <div class="story-impact-label">Evening programmes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 2 -->
+  <div class="story-card">
+    <div class="story-card-visual">
+      <div class="story-card-visual-inner">👩‍💼</div>
+    </div>
+    <div class="story-card-content">
+      <span class="tag tag-yellow" style="margin-bottom:20px;">Story 02</span>
+      <p class="story-card-quote">"I used to sell secondhand clothes to survive. Now I run an energy business. I am the power company in my street."</p>
+      <h2 class="display-md" style="margin-bottom:16px;">Mama Ngozi's Charging Station</h2>
+      <p class="story-card-body">Ngozi Obi was a petty trader in the Nnewi market when she heard about OneGrid's OneBox programme. She applied, was selected, and received a community charging station loaded with ten solar lanterns to rent out nightly.</p>
+      <p class="story-card-body">Within three months, she had paid back her initial investment and started saving. She's now hired two young people to help her manage the station in the evenings. Her income has more than doubled — and her neighbours no longer fear the dark.</p>
+      <div class="story-impact">
+        <div class="story-impact-item">
+          <div class="story-impact-num">2×</div>
+          <div class="story-impact-label">Income increase</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">2</div>
+          <div class="story-impact-label">Jobs created</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">60+</div>
+          <div class="story-impact-label">Families served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 3 -->
+  <div class="story-card">
+    <div class="story-card-visual">
+      <div class="story-card-visual-inner">🏫</div>
+    </div>
+    <div class="story-card-content">
+      <span class="tag tag-yellow" style="margin-bottom:20px;">Story 03</span>
+      <p class="story-card-quote">"The children used to read by the flame of a candle. We were afraid every single night. Now they read until 10pm and their grades have improved."</p>
+      <h2 class="display-md" style="margin-bottom:16px;">St. Augustine's School Outreach</h2>
+      <p class="story-card-body">When OneGrid Energies' outreach team visited St. Augustine's Primary School in a rural Anambra community, they found 340 pupils whose homework depended entirely on candles and kerosene — both fire hazards and toxic to young lungs.</p>
+      <p class="story-card-body">The school outreach programme donated lanterns to 80 of the most vulnerable families and established a reading programme that runs three evenings per week by solar light. End-of-year exam results showed measurable improvement across all classes.</p>
+      <div class="story-impact">
+        <div class="story-impact-item">
+          <div class="story-impact-num">80</div>
+          <div class="story-impact-label">Families received lanterns</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">340</div>
+          <div class="story-impact-label">Pupils impacted</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">+23%</div>
+          <div class="story-impact-label">Exam improvement</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 4 -->
+  <div class="story-card">
+    <div class="story-card-visual">
+      <div class="story-card-visual-inner">🏥</div>
+    </div>
+    <div class="story-card-content">
+      <span class="tag tag-yellow" style="margin-bottom:20px;">Story 04</span>
+      <p class="story-card-quote">"I delivered three babies last month by the light of a solar lantern. All three mothers and babies survived. Before OneGrid, I am not sure we would say the same."</p>
+      <h2 class="display-md" style="margin-bottom:16px;">The Midwife Who Never Stops</h2>
+      <p class="story-card-body">Nurse Adaeze Eze works at a primary healthcare centre in Uli, Anambra, where grid power is rarely reliable after 6pm. Night deliveries — the most dangerous kind — were performed by torchlight held by an assistant, or not at all.</p>
+      <p class="story-card-body">OneGrid's OneHealth programme supplied the clinic with six solar lanterns and a larger solar installation for the delivery room. Nurse Adaeze no longer pauses at dusk. She works through the night, safely, and the community's maternal mortality rate has fallen significantly in the months since deployment.</p>
+      <div class="story-impact">
+        <div class="story-impact-item">
+          <div class="story-impact-num">6</div>
+          <div class="story-impact-label">Lanterns delivered</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">↓</div>
+          <div class="story-impact-label">Maternal mortality</div>
+        </div>
+        <div class="story-impact-item">
+          <div class="story-impact-num">24/7</div>
+          <div class="story-impact-label">Healthcare now</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING CTA -->
+  <section style="background:var(--yellow); padding:80px 0; text-align:center;">
+    <div class="container">
+      <h2 class="display-lg" style="margin-bottom:20px;">Your Story Starts Here</h2>
+      <p style="color:rgba(0,0,0,0.6); max-width:500px; margin:0 auto 36px; font-size:18px; line-height:1.6;">Every investment, every partnership, every lantern funded writes a new chapter in someone's story of hope.</p>
+      <a href="#" class="btn" style="background:var(--black); color:white; font-size:16px; padding:16px 40px;" onclick="navigateTo('contact'); return false;">Partner With OneGrid</a>
+    </div>
+  </section>
+
+</div><!-- /page-stories -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ════════════════ CONTACT PAGE ════════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+
+  <div class="page-hero" style="min-height:50vh;">
+    <div class="page-hero-bg">
+      <div class="page-hero-pattern"></div>
+      <div class="page-hero-glow"></div>
+    </div>
+    <div class="container" style="position:relative; padding-top:140px; padding-bottom:60px;">
+      <span class="tag tag-yellow" style="margin-bottom:24px;">Contact Us</span>
+      <h1 class="display-xl" style="color:white; max-width:700px; margin-bottom:24px;">Let's Build A Brighter<br><span style="color:var(--yellow);">Future Together</span></h1>
+      <p style="color:rgba(255,255,255,0.6); max-width:500px; font-size:clamp(16px,1.5vw,19px); line-height:1.7;">Investors, partners, donors, governments, NGOs — we want to hear from all of you. No vision is too large.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-page-grid">
+
+        <!-- FORM -->
+        <div class="reveal">
+          <h2 style="font-size:28px; font-weight:700; margin-bottom:32px;">Send Us A Message</h2>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div class="contact-form-group" style="margin:0;">
+              <label style="color:var(--gray-600);">First Name</label>
+              <input style="width:100%; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px 18px; font-family:var(--font-body); font-size:15px;" type="text" placeholder="First name">
+            </div>
+            <div class="contact-form-group" style="margin:0;">
+              <label style="color:var(--gray-600);">Last Name</label>
+              <input style="width:100%; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px 18px; font-family:var(--font-body); font-size:15px;" type="text" placeholder="Last name">
+            </div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gray-600); margin-bottom:8px;">Email</label>
+            <input style="width:100%; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px 18px; font-family:var(--font-body); font-size:15px;" type="email" placeholder="your@email.com">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gray-600); margin-bottom:8px;">Organisation</label>
+            <input style="width:100%; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px 18px; font-family:var(--font-body); font-size:15px;" type="text" placeholder="Your company or organisation">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gray-600); margin-bottom:8px;">I'm interested in...</label>
+            <select style="width:100%; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px 18px; font-family:var(--font-body); font-size:15px; color:var(--gray-600);">
+              <option>Select an option</option>
+              <option>Investment / Funding</option>
+              <option>NGO / Development Partnership</option>
+              <option>Bulk Lantern Purchase</option>
+              <option>Solar Installation</option>
+              <option>Training Academy</option>
+              <option>OneBox Franchise</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div style="margin-bottom:24px;">
+            <label style="display:block; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gray-600); margin-bottom:8px;">Message</label>
+            <textarea style="width:100%; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px 18px; font-family:var(--font-body); font-size:15px; height:160px; resize:vertical;" placeholder="Tell us about your interest, project, or question..."></textarea>
+          </div>
+          <button class="btn btn-primary" style="width:100%; justify-content:center; font-size:16px; padding:16px;" onclick="handleContactSubmit(event)">
+            Send Message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+
+        <!-- INFO -->
+        <div class="reveal reveal-delay-2">
+          <h2 style="font-size:28px; font-weight:700; margin-bottom:32px;">Find Us</h2>
+
+          <!-- Map -->
+          <div class="map-placeholder" style="margin-bottom:32px;">
+            <iframe class="map-embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d6.778!3d6.136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDgnMDcuMiJOIDblsI8wNic4MC44Ilc!5e0!3m2!1sen!2sng!4v1000000000000"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="OneGrid Energies Location">
+            </iframe>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:24px; margin-bottom:40px;">
+            <div style="display:flex; gap:16px; align-items:flex-start;">
+              <div style="width:44px; height:44px; background:var(--gray-50); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-400); margin-bottom:4px;">Address</div>
+                <div style="font-size:15px;">No 89 Upper New Market Rd,<br>Onitsha, Anambra State, Nigeria</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:16px; align-items:flex-start;">
+              <div style="width:44px; height:44px; background:var(--gray-50); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-400); margin-bottom:4px;">Phone</div>
+                <div style="font-size:15px;">071 2000 3628</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:16px; align-items:flex-start;">
+              <div style="width:44px; height:44px; background:var(--gray-50); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-400); margin-bottom:4px;">Email</div>
+                <a href="mailto:onegridenergies@gmail.com" style="font-size:15px; color:var(--black); text-decoration:none;">onegridenergies@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-400); margin-bottom:16px;">Follow Us</div>
+            <div style="display:flex; gap:12px;">
+              <a href="#" style="width:44px; height:44px; border-radius:12px; background:var(--gray-50); border:1px solid var(--gray-200); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all 0.2s;" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" style="width:44px; height:44px; border-radius:12px; background:var(--gray-50); border:1px solid var(--gray-200); display:flex; align-items:center; justify-content:center; text-decoration:none;" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" width="18" height="18"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="#" style="width:44px; height:44px; border-radius:12px; background:var(--gray-50); border:1px solid var(--gray-200); display:flex; align-items:center; justify-content:center; text-decoration:none;" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" style="width:44px; height:44px; border-radius:12px; background:var(--gray-50); border:1px solid var(--gray-200); display:flex; align-items:center; justify-content:center; text-decoration:none;" aria-label="Twitter/X">
+                <svg viewBox="0 0 24 24" fill="var(--black)" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://wa.me/2347120003628" target="_blank" style="width:44px; height:44px; border-radius:12px; background:#25D366; display:flex; align-items:center; justify-content:center; text-decoration:none;" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-contact -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ════════════════ FOOTER ══════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <div class="nav-logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <span class="footer-logo-text">OneGrid<span style="color:var(--yellow)">.</span></span>
+        </div>
+        <p class="footer-desc">Reducing darkness through sustainable energy, recycling innovation, and human empowerment across Nigeria and beyond.</p>
+        <p style="margin-top:20px; font-size:13px;">No 89 Upper New Market Rd,<br>Onitsha, Anambra State, Nigeria</p>
+        <p style="margin-top:8px; font-size:13px;">071 2000 3628 &nbsp;·&nbsp; onegridenergies@gmail.com</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="navigateTo('home'); return false;">Home</a></li>
+          <li><a href="#" onclick="navigateTo('about'); return false;">About Us</a></li>
+          <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OnePlastic</a></li>
+          <li><a href="#" onclick="navigateTo('stories'); return false;">Stories of Hope</a></li>
+          <li><a href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Programmes</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OnePlastic</a></li>
+          <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OneHealth</a></li>
+          <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OneBox</a></li>
+          <li><a href="#" onclick="navigateTo('about'); return false;">Solar Installations</a></li>
+          <li><a href="#" onclick="navigateTo('about'); return false;">Training Academy</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Get Involved</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="navigateTo('contact'); return false;">Invest</a></li>
+          <li><a href="#" onclick="navigateTo('contact'); return false;">Partner With Us</a></li>
+          <li><a href="#" onclick="navigateTo('contact'); return false;">Donate</a></li>
+          <li><a href="#" onclick="navigateTo('contact'); return false;">Volunteer</a></li>
+          <li><a href="#" onclick="navigateTo('contact'); return false;">Press & Media</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 OneGrid Energies. Registered in Nigeria. All rights reserved.</p>
+      <div style="display:flex; gap:16px;">
+        <a href="#" style="color:rgba(255,255,255,0.3); font-size:13px; text-decoration:none;">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.3); font-size:13px; text-decoration:none;">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>
