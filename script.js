@@ -158,7 +158,39 @@ function initIntroVideo() {
 // ══════════════════════════════════════
 // INIT
 // ══════════════════════════════════════
+// ══════════════════════════════════════
+// GALLERY & PARTNERS IMAGES
+// ══════════════════════════════════════
+function initGalleryImages() {
+  // Initialize gallery item images from data-image attributes
+  const galleryItems = document.querySelectorAll('.gallery-item[data-image]');
+  galleryItems.forEach(item => {
+    const imageUrl = item.getAttribute('data-image');
+    if (imageUrl) {
+      item.style.backgroundImage = `url('${imageUrl}')`;
+    }
+  });
+}
+
+function initPartnerLogos() {
+  // Initialize partner logos from data-logo attributes
+  const partnerLogos = document.querySelectorAll('.partner-logo[data-logo]');
+  partnerLogos.forEach(logo => {
+    const logoUrl = logo.getAttribute('data-logo');
+    if (logoUrl) {
+      logo.style.backgroundImage = `url('${logoUrl}')`;
+      logo.style.backgroundSize = 'contain';
+      logo.style.backgroundRepeat = 'no-repeat';
+      logo.style.backgroundPosition = 'center';
+      logo.style.minWidth = '120px';
+      logo.style.color = 'transparent';
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initGalleryImages();
+  initPartnerLogos();
   initReveal();
   initIntroVideo();
 
