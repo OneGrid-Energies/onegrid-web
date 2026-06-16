@@ -9,15 +9,26 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FFD400">
 <title>OneGrid Energies | We Can Reduce Darkness</title>
+<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+<link rel="dns-prefetch" href="https://res.cloudinary.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var saved = localStorage.getItem('onegrid-theme');
+  var theme = saved === 'light' || saved === 'dark'
+    ? saved
+    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
 </head>
 <body>
 <section class="intro-video">
   <div class="intro-video__wrapper">
-    <video class="intro-video__media" autoplay muted loop playsinline poster="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.jpg">
+    <video class="intro-video__media" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg">
       <source src="https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4" type="video/mp4">
       Your browser does not support video.
     </video>
@@ -58,6 +69,10 @@
       <li><a class="nav-link" href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
     </ul>
     <div class="nav-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle light and dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
       <a href="#" class="btn btn-primary btn-sm" onclick="navigateTo('contact'); return false;">Partner With Us</a>
     </div>
     <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
@@ -67,6 +82,13 @@
 </nav>
 
 <div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav-theme">
+    <span>Theme</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle light and dark theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
   <a href="#" onclick="navigateTo('home'); toggleMobileNav(); return false;">Home</a>
   <a href="#" onclick="navigateTo('about'); toggleMobileNav(); return false;">About</a>
   <a href="#" onclick="navigateTo('oneplastic'); toggleMobileNav(); return false;">OnePlastic</a>
@@ -119,7 +141,7 @@
 
   <!-- VISION & MISSION -->
   <section class="vision-section">
-    <div class="vision-bg" style="background: linear-gradient(180deg, rgba(12,11,8,0.65), rgba(12,11,8,0.92)), url('https://res.cloudinary.com/dj2ciluyx/image/upload/v1781124760/photo_18_syjjpq.jpg') center/cover no-repeat;"></div>
+    <div class="vision-bg" data-bg="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781124760/photo_18_syjjpq.jpg"></div>
     <div class="vision-pattern"></div>
     <div class="vision-glow"></div>
     <div class="vision-glow-2"></div>
@@ -155,7 +177,7 @@
         <!-- Sticky image column -->
         <div class="story-founder-visual reveal">
           <div class="story-founder-img-wrap">
-            <img src="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781118929/photo_19_nebt8w.jpg" alt="Valentine Nnamani, Founder of OneGrid Energies" />
+            <img data-src="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781118929/photo_19_nebt8w.jpg" alt="Valentine Nnamani, Founder of OneGrid Energies" loading="lazy" decoding="async" width="420" height="560" />
             <div class="story-founder-badge">
               <span class="story-founder-badge-name">Valentine Nnamani</span>
               <span class="story-founder-badge-title">Founder & CEO</span>
@@ -415,40 +437,51 @@
   </section>
 
   <!-- PARTNERS -->
-  <section class="section partners-section">
+  <section class="section partners-section" aria-labelledby="partners-heading">
     <div class="container">
-      <p class="partners-label">Partners & Supporters</p>
+      <div class="partners-header reveal">
+        <span class="tag tag-outline">Partners &amp; Supporters</span>
+        <h2 class="display-md partners-title" id="partners-heading">Building Brighter Futures Together</h2>
+        <p class="partners-subtitle">Trusted by NGOs, corporates, and development partners who share our mission to reduce darkness across Nigeria.</p>
+      </div>
+    </div>
+
+    <div class="partners-marquee" aria-label="Partner and supporter logos">
       <div class="partners-track">
-        <div class="partners-inner">
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601943/IMG_0987_zktqcd.png">MTN</div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0984_b4xyjz.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0986_ieljyl.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0996_mo1sg4.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0981_fkct5m.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0989_bmoudg.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0982_aabhlf.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0985_lma5hw.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0979_x5cfhs.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0983_k8dxxa.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0976_gwmqaa.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0977_e5nrd0.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0978_yxsvwz.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0980_w7ztv1.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601946/IMG_0975_f8nnnd.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0966_ahvcti.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0988_vmy0lk.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0972_cqosmc.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0974_mye4kr.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0968_br6npr.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0970_topied.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0961_opd6xe.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0964_khxshp.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0973_kh9tk5.png"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0965_ucr1ej.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0967_dbsk1b.jpg"></div>
-          <div class="partner-logo" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601950/IMG_0963_jsktse.png"></div>
+        <div class="partners-inner" id="partners-track">
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601943/IMG_0987_zktqcd.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0984_b4xyjz.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0986_ieljyl.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0996_mo1sg4.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0981_fkct5m.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0989_bmoudg.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0982_aabhlf.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601944/IMG_0985_lma5hw.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0979_x5cfhs.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0983_k8dxxa.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0976_gwmqaa.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0977_e5nrd0.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0978_yxsvwz.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601945/IMG_0980_w7ztv1.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601946/IMG_0975_f8nnnd.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0966_ahvcti.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0988_vmy0lk.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0972_cqosmc.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0974_mye4kr.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0968_br6npr.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601948/IMG_0970_topied.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0961_opd6xe.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0964_khxshp.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0973_kh9tk5.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0965_ucr1ej.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601949/IMG_0967_dbsk1b.jpg"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
+          <div class="partner-card is-loading" data-logo="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781601950/IMG_0963_jsktse.png"><img class="partner-card__img" alt="" width="140" height="48" decoding="async"></div>
         </div>
       </div>
+    </div>
+
+    <div class="container">
+      <p class="partners-footnote reveal">27+ organizations · NGOs · Corporates · Development partners</p>
     </div>
   </section>
 
@@ -1049,7 +1082,7 @@
         <!-- FORM -->
         <div class="reveal">
           <h2 style="font-size:28px; font-weight:700; margin-bottom:32px;">Send Us A Message</h2>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;" class="contact-name-row">
             <div class="contact-form-group" style="margin:0;">
               <label style="color:var(--gray-600);">First Name</label>
               <input style="width:100%; background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px 18px; font-family:var(--font-body); font-size:15px;" type="text" placeholder="First name">
