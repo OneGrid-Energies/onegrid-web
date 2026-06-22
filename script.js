@@ -338,7 +338,7 @@ function initPartnerLogos() {
       let delay = 0;
       byUrl.forEach((cardGroup, logoUrl) => {
         setTimeout(() => {
-          const optimized = cloudinaryUrl(logoUrl, { width: 200, height: 64, crop: 'limit' });
+          const optimized = cloudinaryUrl(logoUrl, { width: 248, height: 112, crop: 'limit' });
           const preload = new Image();
           preload.onload = () => {
             cardGroup.forEach(card => {
