@@ -380,4 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+
 window.addEventListener('scroll', initReveal, { passive: true });
