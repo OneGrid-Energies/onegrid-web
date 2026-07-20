@@ -1344,40 +1344,63 @@ footer {
 }
 
 /* ──────────────────── ONEPLASTIC PAGE ──────────────────── */
-.process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
-.process-steps::before {
-  content: ''; position: absolute; top: 36px; left: 36px; right: 36px;
-  height: 2px; background: var(--yellow); z-index: 0;
+.oneplastic-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(40px, 7vw, 112px);
 }
-.process-step { text-align: center; position: relative; z-index: 1; padding: 0 12px; }
-.process-step-num {
-  width: 72px; height: 72px; border-radius: 50%;
-  background: var(--yellow); color: var(--black);
-  font-family: var(--font-display); font-weight: 900; font-size: 24px;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px;
+.oneplastic-split--reverse > :first-child { order: 2; }
+.oneplastic-split--reverse > :last-child { order: 1; }
+.oneplastic-growth-block { margin-top: clamp(72px, 10vw, 140px); }
+.oneplastic-split .tag { display: inline-flex; }
+.oneplastic-copy {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 20px;
 }
-.process-step-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
-.process-step-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
-.diagram-box {
-  background: var(--bg-surface); border-radius: var(--radius-lg);
-  padding: clamp(32px, 4vw, 60px);
+.oneplastic-copy--dark { color: rgba(255,255,255,0.62); }
+.oneplastic-list {
+  display: grid;
+  gap: 14px;
+  padding-left: 22px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.75;
 }
-.revenue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.revenue-card {
-  background: var(--bg-card); border-radius: var(--radius-md);
-  padding: 28px; border: 1.5px solid var(--border-color);
-  position: relative; overflow: hidden;
+.oneplastic-list li::marker { color: var(--yellow-dark); font-weight: 700; }
+.oneplastic-list strong { color: var(--text-primary); }
+.oneplastic-list--dark { color: rgba(255,255,255,0.62); }
+.oneplastic-list--dark strong { color: white; }
+.oneplastic-list--dark li::marker { color: var(--yellow); }
+.oneplastic-image {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  height: clamp(320px, 34vw, 480px);
+  border-radius: var(--radius-lg);
+  background: var(--gray-100);
+  box-shadow: 0 18px 48px rgba(10,10,10,0.12);
 }
-.revenue-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 4px; background: var(--yellow);
+.oneplastic-image::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 28%;
+  pointer-events: none;
+  background: linear-gradient(transparent, rgba(0,0,0,0.18));
 }
-.revenue-amount {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: 32px; color: var(--text-primary); margin-bottom: 4px;
+.oneplastic-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s var(--transition);
 }
-.revenue-label { font-size: 13px; color: var(--text-secondary); }
+.oneplastic-image:hover img { transform: scale(1.04); }
+.oneplastic-image--dark { box-shadow: 0 22px 54px rgba(0,0,0,0.42); }
 
 /* ──────────────────── STORIES PAGE ──────────────────── */
 .story-hero-section {
@@ -1559,8 +1582,6 @@ footer {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .process-steps::before { display: none; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .services-featured { grid-column: span 2; }
   .story-founder-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1577,8 +1598,11 @@ footer {
   .intro-video { min-height: 55vh; }
   .intro-video__title { font-size: clamp(32px, 8vw, 48px); }
   .grid-2, .contact-grid, .contact-page-grid, .about-hero-inner,
-  .story-card, .gallery-grid, .story-founder-grid { grid-template-columns: 1fr; }
-  .values-grid, .grid-3, .revenue-grid { grid-template-columns: 1fr; }
+  .story-card, .gallery-grid, .story-founder-grid, .oneplastic-split { grid-template-columns: 1fr; }
+  .oneplastic-split--reverse > :first-child,
+  .oneplastic-split--reverse > :last-child { order: initial; }
+  .oneplastic-image { height: 300px; }
+  .values-grid, .grid-3 { grid-template-columns: 1fr; }
   .belief-copy, .belief-list { grid-template-columns: 1fr; }
   .belief-lead { margin-bottom: 24px; }
   .belief-item { min-height: auto; }
@@ -1596,7 +1620,6 @@ footer {
   .hamburger { display: block; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-  .process-steps { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
   .gallery-item.wide, .gallery-item.tall { grid-column: span 1; grid-row: span 1; }
   .impact-grid { grid-template-columns: 1fr 1fr; }
