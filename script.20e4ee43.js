@@ -213,13 +213,64 @@ function handleContactSubmit(e) {
 const BACKGROUND_VIDEOS = {
   home: {
     src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4',
-    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg'
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg',
+    label: 'OneGrid Energies',
+    title: 'A brighter future starts with one loop of light.',
+    subtitle: 'This muted video section plays in a continuous loop before you continue down the page to the rest of the OneGrid story.',
+    target: '.hero'
+  },
+  about: {
+    src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781116924/Background_video_3_jshjf7.mp4',
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781116924/Background_video_3_jshjf7.jpg',
+    label: 'Our Story',
+    title: 'Small innovations can create big change.',
+    subtitle: 'Background Video 3 opens the About story before you continue into OneGrid Energies, its journey, and its mission.',
+    target: '#page-about .page-hero'
   },
   oneplastic: {
     src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1782152748/MP4_Background_video_2_p7wmtx.mp4',
-    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1782152748/MP4_Background_video_2_p7wmtx.jpg'
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1782152748/MP4_Background_video_2_p7wmtx.jpg',
+    label: 'OnePlastic Initiative',
+    title: 'Waste becomes light before the story begins.',
+    subtitle: 'Background Video 2 introduces the OnePlastic journey before you continue into the initiative, its model, and its community impact.',
+    target: '#page-oneplastic .page-hero'
+  },
+  stories: {
+    src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4',
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg',
+    label: 'Stories of Hope',
+    title: 'Every light carries a human story.',
+    subtitle: 'This shared intro video opens the Stories of Hope page before you continue into the people and communities behind OneGrid Energies.',
+    target: '#page-stories'
+  },
+  contact: {
+    src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4',
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg',
+    label: 'Contact OneGrid',
+    title: 'Start a partnership that reduces darkness.',
+    subtitle: 'This shared intro video opens the Contact page before you continue to partnership, investment, donation, and media enquiries.',
+    target: '#page-contact .page-hero'
   }
 };
+
+function updateIntroContent(config) {
+  const label = document.querySelector('[data-intro-label]');
+  const title = document.querySelector('[data-intro-title]');
+  const subtitle = document.querySelector('[data-intro-subtitle]');
+  const cta = document.querySelector('[data-intro-cta]');
+
+  if (label) label.textContent = config.label;
+  if (title) title.textContent = config.title;
+  if (subtitle) subtitle.textContent = config.subtitle;
+  if (cta) cta.dataset.introTarget = config.target;
+}
+
+function scrollIntroTarget() {
+  const cta = document.querySelector('[data-intro-cta]');
+  const selector = cta?.dataset.introTarget || '.page.active';
+  const target = document.querySelector(selector);
+  if (target) target.scrollIntoView({ behavior: 'smooth' });
+}
 
 function playBackgroundVideo(video) {
   if (!video) return;
@@ -253,21 +304,13 @@ function updateBackgroundVideo(page) {
   const video = document.getElementById('shared-bg-video');
   const introSection = document.querySelector('.intro-video');
   const introWrapper = document.querySelector('.intro-video__wrapper');
-  const oneplasticBg = document.querySelector('#page-oneplastic .page-hero-bg');
   if (!video || !introSection || !introWrapper) return;
 
-  if (page === 'home') {
+  if (BACKGROUND_VIDEOS[page]) {
     introSection.hidden = false;
-    setSharedVideoSource(video, BACKGROUND_VIDEOS.home);
+    updateIntroContent(BACKGROUND_VIDEOS[page]);
+    setSharedVideoSource(video, BACKGROUND_VIDEOS[page]);
     introWrapper.prepend(video);
-    playBackgroundVideo(video);
-    return;
-  }
-
-  if (page === 'oneplastic' && oneplasticBg) {
-    introSection.hidden = true;
-    setSharedVideoSource(video, BACKGROUND_VIDEOS.oneplastic);
-    oneplasticBg.prepend(video);
     playBackgroundVideo(video);
     return;
   }
