@@ -364,6 +364,65 @@ function initPartnerLogos() {
 }
 
 // ══════════════════════════════════════
+// SERVICE VIDEO MODAL (What We Do)
+// ══════════════════════════════════════
+function buildServiceVideoEmbed(spec) {
+  const [type, id] = spec.split(':');
+  if (type === 'youtube' && id) {
+    const src = `https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+    return `<iframe src="${src}" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  }
+  if (type === 'instagram' && id) {
+    const src = `https://www.instagram.com/reel/${encodeURIComponent(id)}/embed`;
+    return `<iframe src="${src}" title="Instagram reel" allowfullscreen scrolling="no"></iframe>`;
+  }
+  return '';
+}
+
+function openServiceVideoModal(spec) {
+  const modal = document.getElementById('service-video-modal');
+  const embedHost = document.getElementById('service-video-modal-embed');
+  if (!modal || !embedHost) return;
+
+  const html = buildServiceVideoEmbed(spec);
+  if (!html) return;
+
+  embedHost.innerHTML = html;
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.service-video-modal__close')?.focus();
+}
+
+function closeServiceVideoModal() {
+  const modal = document.getElementById('service-video-modal');
+  const embedHost = document.getElementById('service-video-modal-embed');
+  if (!modal || !embedHost) return;
+
+  modal.hidden = true;
+  embedHost.innerHTML = '';
+  document.body.style.overflow = '';
+}
+
+function initServiceVideos() {
+  const modal = document.getElementById('service-video-modal');
+  if (!modal) return;
+
+  document.querySelectorAll('[data-service-video]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      openServiceVideoModal(trigger.dataset.serviceVideo);
+    });
+  });
+
+  modal.querySelectorAll('[data-service-video-close]').forEach(el => {
+    el.addEventListener('click', closeServiceVideoModal);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) closeServiceVideoModal();
+  });
+}
+
+// ══════════════════════════════════════
 // INIT
 // ══════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
@@ -373,6 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPartnerLogos();
   initReveal();
   initIntroVideo();
+  initServiceVideos();
 
   const hero = document.querySelector('.hero');
   if (hero) {
