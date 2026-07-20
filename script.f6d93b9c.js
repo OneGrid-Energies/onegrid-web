@@ -195,16 +195,79 @@ function filterGallery(cat, btn) {
 }
 
 // ══════════════════════════════════════
-// CONTACT FORM
+// GALLERY LIGHTBOX
 // ══════════════════════════════════════
-function handleContactSubmit(e) {
-  const btn = e.target;
-  btn.textContent = '✓ Message Sent!';
-  btn.style.background = '#22c55e';
-  setTimeout(() => {
-    btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
-    btn.style.background = '';
-  }, 3000);
+let galleryLightboxTrigger = null;
+
+function getGalleryCaption(item) {
+  const label = item.querySelector('.gallery-overlay span')?.textContent.trim();
+  if (label) return label;
+
+  const labels = {
+    oneplastic: 'OnePlastic',
+    onehealth: 'OneHealth',
+    onebox: 'OneBox',
+    solar: 'Solar Installation',
+    training: 'Training Academy',
+    'office+workshop': 'Office / Workshop'
+  };
+  return labels[item.dataset.cat] || 'OneGrid Energies';
+}
+
+function openGalleryLightbox(item) {
+  const modal = document.getElementById('gallery-lightbox');
+  const image = document.getElementById('gallery-lightbox-image');
+  const caption = document.getElementById('gallery-lightbox-title');
+  const source = item.dataset.image;
+  if (!modal || !image || !caption || !source || source.includes('example.com')) return;
+
+  const label = getGalleryCaption(item);
+  image.src = cloudinaryUrl(source, { width: 1600, quality: 'auto:good' });
+  image.alt = label;
+  caption.textContent = label;
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  galleryLightboxTrigger = item;
+  modal.querySelector('.gallery-lightbox__close')?.focus();
+}
+
+function closeGalleryLightbox() {
+  const modal = document.getElementById('gallery-lightbox');
+  const image = document.getElementById('gallery-lightbox-image');
+  if (!modal || !image) return;
+
+  modal.hidden = true;
+  image.removeAttribute('src');
+  image.alt = '';
+  document.body.style.overflow = '';
+  galleryLightboxTrigger?.focus();
+  galleryLightboxTrigger = null;
+}
+
+function initGalleryLightbox() {
+  const modal = document.getElementById('gallery-lightbox');
+  if (!modal) return;
+
+  document.querySelectorAll('.gallery-item[data-image]').forEach(item => {
+    item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', `View ${getGalleryCaption(item)} image`);
+    item.addEventListener('click', () => openGalleryLightbox(item));
+    item.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openGalleryLightbox(item);
+      }
+    });
+  });
+
+  modal.querySelectorAll('[data-gallery-lightbox-close]').forEach(el => {
+    el.addEventListener('click', closeGalleryLightbox);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !modal.hidden) closeGalleryLightbox();
+  });
 }
 
 // ══════════════════════════════════════
@@ -577,6 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initLazyImages();
   initGalleryImages();
+  initGalleryLightbox();
   initPartnerLogos();
   initReveal();
   initIntroVideo();
