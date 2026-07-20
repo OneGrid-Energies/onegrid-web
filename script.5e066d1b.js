@@ -91,6 +91,7 @@ function navigateTo(page) {
   }
 
   setTimeout(initReveal, 100);
+  updateBackgroundVideo(page);
 }
 
 // ══════════════════════════════════════
@@ -209,32 +210,100 @@ function handleContactSubmit(e) {
 // ══════════════════════════════════════
 // INTRO VIDEO PLAYBACK
 // ══════════════════════════════════════
-function initIntroVideo() {
-  const video = document.querySelector('.intro-video__media');
+const BACKGROUND_VIDEOS = {
+  home: {
+    src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4',
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg'
+  },
+  oneplastic: {
+    src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1782152748/MP4_Background_video_2_p7wmtx.mp4',
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1782152748/MP4_Background_video_2_p7wmtx.jpg'
+  }
+};
+
+function playBackgroundVideo(video) {
   if (!video) return;
 
-  const source = video.querySelector('source');
   const tier = getConnectionTier();
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (tier === 'save' || tier === 'slow' || prefersReducedMotion) return;
 
-  if (source && source.src.includes('cloudinary.com')) {
-    const width = isMobile ? 720 : 1280;
-    source.src = cloudinaryVideoUrl(source.src, { width });
+  video.play().catch(() => {});
+}
+
+function getOptimizedVideoSrc(baseSrc) {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const width = isMobile ? 720 : 1280;
+  return baseSrc.includes('cloudinary.com') ? cloudinaryVideoUrl(baseSrc, { width }) : baseSrc;
+}
+
+function setSharedVideoSource(video, config) {
+  const source = video.querySelector('source');
+  if (!source) return;
+
+  if (source.getAttribute('data-base') !== config.src) {
+    source.setAttribute('data-base', config.src);
+    source.src = getOptimizedVideoSrc(config.src);
+    video.poster = config.poster;
+    video.load();
   }
+}
+
+function updateBackgroundVideo(page) {
+  const video = document.getElementById('shared-bg-video');
+  const introSection = document.querySelector('.intro-video');
+  const introWrapper = document.querySelector('.intro-video__wrapper');
+  const oneplasticBg = document.querySelector('#page-oneplastic .page-hero-bg');
+  if (!video || !introSection || !introWrapper) return;
+
+  if (page === 'home') {
+    introSection.hidden = false;
+    setSharedVideoSource(video, BACKGROUND_VIDEOS.home);
+    introWrapper.prepend(video);
+    playBackgroundVideo(video);
+    return;
+  }
+
+  if (page === 'oneplastic' && oneplasticBg) {
+    introSection.hidden = true;
+    setSharedVideoSource(video, BACKGROUND_VIDEOS.oneplastic);
+    oneplasticBg.prepend(video);
+    playBackgroundVideo(video);
+    return;
+  }
+
+  introSection.hidden = true;
+  video.pause();
+  introWrapper.prepend(video);
+}
+
+function initIntroVideo() {
+  const video = document.getElementById('shared-bg-video');
+  if (!video || video.dataset.initialized === 'true') return;
+
+  const tier = getConnectionTier();
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   video.muted = true;
   video.loop = true;
   video.playsInline = true;
   video.preload = tier === 'save' || tier === 'slow' ? 'none' : 'metadata';
 
-  if (tier === 'save' || tier === 'slow' || prefersReducedMotion) {
-    video.removeAttribute('autoplay');
-    return;
+  const source = video.querySelector('source');
+  if (source) {
+    const baseSrc = source.getAttribute('data-base') || source.src;
+    source.setAttribute('data-base', baseSrc);
+    source.src = getOptimizedVideoSrc(baseSrc);
   }
 
-  video.autoplay = true;
-  video.play().catch(() => {});
+  if (tier === 'save' || tier === 'slow' || prefersReducedMotion) {
+    video.removeAttribute('autoplay');
+  } else {
+    video.autoplay = true;
+  }
+
+  video.dataset.initialized = 'true';
+  updateBackgroundVideo('home');
 }
 
 // ══════════════════════════════════════
@@ -338,7 +407,7 @@ function initPartnerLogos() {
       let delay = 0;
       byUrl.forEach((cardGroup, logoUrl) => {
         setTimeout(() => {
-          const optimized = cloudinaryUrl(logoUrl, { width: 248, height: 112, crop: 'limit' });
+          const optimized = cloudinaryUrl(logoUrl, { width: 320, height: 152, crop: 'limit' });
           const preload = new Image();
           preload.onload = () => {
             cardGroup.forEach(card => {

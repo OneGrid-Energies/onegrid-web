@@ -911,7 +911,7 @@ body {
 }
 .impact-header { position: relative; }
 .impact-header .section-title { color: var(--black); }
-.impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 .impact-card {
   background: rgba(0,0,0,0.04); padding: clamp(28px, 3vw, 44px);
   position: relative;
@@ -1044,13 +1044,14 @@ body {
   width: 168px;
   height: 92px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px 22px;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 8px 10px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
   transition: border-color 0.25s var(--transition), box-shadow 0.25s var(--transition), transform 0.25s var(--transition);
 }
 
@@ -1077,10 +1078,11 @@ body {
 
 .partner-card__img {
   display: block;
+  flex: 1 1 auto;
   width: 100%;
   height: 100%;
-  max-width: 124px;
-  max-height: 56px;
+  min-width: 0;
+  min-height: 0;
   object-fit: contain;
   object-position: center;
   opacity: 1;
@@ -1210,16 +1212,33 @@ footer {
   position: relative; overflow: hidden;
 }
 .page-hero-bg { position: absolute; inset: 0; }
+.page-hero-bg > .intro-video__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  z-index: 0;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.8) 100%);
+  z-index: 1;
+}
 .page-hero-pattern {
   position: absolute; inset: 0; opacity: 0.05;
   background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
   background-size: 32px 32px;
+  z-index: 2;
 }
 .page-hero-glow {
   position: absolute; top: -20%; left: -10%;
   width: 600px; height: 600px;
   background: radial-gradient(circle, rgba(255,212,0,0.12) 0%, transparent 70%);
   border-radius: 50%;
+  z-index: 2;
 }
 
 /* ──────────────────── ONEPLASTIC PAGE ──────────────────── */
@@ -1390,8 +1409,7 @@ footer {
   .gallery-filters { gap: 6px; }
   .filter-btn { padding: 6px 14px; font-size: 12px; }
   .display-xl { font-size: clamp(36px, 10vw, 52px); }
-  .partner-card { width: 140px; height: 80px; padding: 14px 16px; }
-  .partner-card__img { max-width: 108px; max-height: 48px; }
+  .partner-card { width: 140px; height: 80px; padding: 8px 10px; }
   .nav-logo-img { height: 34px; max-width: 130px; }
   .partners-inner { gap: 12px; }
 }
