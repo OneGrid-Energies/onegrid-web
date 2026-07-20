@@ -178,20 +178,48 @@ if (impactSection) impactObserver.observe(impactSection);
 // ══════════════════════════════════════
 // GALLERY FILTER
 // ══════════════════════════════════════
+const GALLERY_BATCH_SIZE = 12;
+let galleryCategory = 'all';
+let visibleGalleryItems = GALLERY_BATCH_SIZE;
+
+function updateGalleryVisibility() {
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const matchingItems = items.filter(item => galleryCategory === 'all' || item.dataset.cat === galleryCategory);
+  const more = document.getElementById('gallery-more');
+  const moreButton = document.getElementById('gallery-more-button');
+
+  items.forEach(item => {
+    const itemIndex = matchingItems.indexOf(item);
+    item.hidden = itemIndex === -1 || itemIndex >= visibleGalleryItems;
+  });
+
+  const remaining = matchingItems.length - visibleGalleryItems;
+  if (more && moreButton) {
+    more.hidden = remaining <= 0;
+    moreButton.textContent = remaining > 0
+      ? `See more (${Math.min(GALLERY_BATCH_SIZE, remaining)} more)`
+      : 'See more';
+  }
+}
+
 function filterGallery(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  galleryCategory = cat;
+  visibleGalleryItems = GALLERY_BATCH_SIZE;
+  updateGalleryVisibility();
+}
 
-  const items = document.querySelectorAll('.gallery-item');
-  items.forEach(item => {
-    if (cat === 'all' || item.dataset.cat === cat) {
-      item.style.display = '';
-      item.style.opacity = '0';
-      setTimeout(() => { item.style.opacity = '1'; item.style.transition = 'opacity 0.4s'; }, 10);
-    } else {
-      item.style.display = 'none';
-    }
+function initGalleryPagination() {
+  const moreButton = document.getElementById('gallery-more-button');
+  if (!moreButton) return;
+
+  moreButton.addEventListener('click', () => {
+    visibleGalleryItems += GALLERY_BATCH_SIZE;
+    updateGalleryVisibility();
   });
+
+  updateGalleryVisibility();
 }
 
 // ══════════════════════════════════════
@@ -638,6 +666,7 @@ function initServiceVideos() {
 // ══════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initGalleryPagination();
   initLazyImages();
   initGalleryImages();
   initGalleryLightbox();
