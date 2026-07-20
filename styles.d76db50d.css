@@ -1191,15 +1191,19 @@ footer {
 .value-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
 .value-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 .belief-section {
+  position: relative;
   background:
-    linear-gradient(135deg, rgba(255,212,0,0.08) 0%, transparent 34%),
-    var(--bg-body);
+    linear-gradient(180deg, rgba(10,10,10,0.58) 0%, rgba(10,10,10,0.9) 100%),
+    url('https://res.cloudinary.com/dj2ciluyx/image/upload/f_auto,q_auto:good,w_1800,c_limit/v1784547747/photo_6_oydccn.jpg') center/cover no-repeat;
+  color: white;
 }
 .belief-shell {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 .belief-kicker {
   position: static;
@@ -1212,7 +1216,7 @@ footer {
   font-size: clamp(28px, 3.4vw, 48px);
   line-height: 1.15;
   font-weight: 700;
-  color: var(--text-primary);
+  color: white;
   margin-bottom: 32px;
 }
 .belief-copy {
@@ -1222,15 +1226,16 @@ footer {
   margin-bottom: 48px;
 }
 .belief-copy p {
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.74);
   font-size: 15px;
   line-height: 1.8;
 }
 .belief-commitment {
-  border-top: 1.5px solid var(--border-color);
+  border-top: 1.5px solid rgba(255,255,255,0.18);
   padding-top: 36px;
 }
 .belief-commitment h2 {
+  color: white;
   margin-bottom: 24px;
 }
 .belief-list {
@@ -1241,9 +1246,11 @@ footer {
 .belief-item {
   min-height: 150px;
   padding: 24px;
-  border: 1.5px solid var(--border-color);
+  border: 1.5px solid rgba(255,255,255,0.16);
   border-radius: var(--radius-md);
-  background: var(--bg-card);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1262,10 +1269,25 @@ footer {
   margin-bottom: 24px;
 }
 .belief-item p {
-  color: var(--text-primary);
+  color: white;
   font-size: 16px;
   line-height: 1.55;
   font-weight: 500;
+}
+.journey-image-card {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--gray-50);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.14);
+}
+.journey-image-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .timeline { position: relative; padding-left: 40px; }
 .timeline::before {
@@ -1289,11 +1311,6 @@ footer {
   position: relative; overflow: hidden;
 }
 .page-hero-bg { position: absolute; inset: 0; }
-#page-about .page-hero-bg {
-  background:
-    linear-gradient(180deg, rgba(10,10,10,0.46) 0%, rgba(10,10,10,0.86) 100%),
-    url('https://res.cloudinary.com/dj2ciluyx/image/upload/f_auto,q_auto:good,w_1800,c_limit/v1784547747/photo_6_oydccn.jpg') center/cover no-repeat;
-}
 #page-about .page-hero .container {
   z-index: 3;
 }
@@ -1436,6 +1453,7 @@ footer {
   .services-featured { grid-column: span 2; }
   .story-founder-grid { grid-template-columns: 1fr; gap: 40px; }
   .story-founder-visual { position: static; }
+  .journey-image-card { position: static; }
   .belief-shell { grid-template-columns: 1fr; gap: 28px; }
   .belief-kicker { position: static; }
 }
