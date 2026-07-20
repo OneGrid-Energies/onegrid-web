@@ -478,17 +478,51 @@ function initPartnerLogos() {
 // ══════════════════════════════════════
 // SERVICE VIDEO MODAL (What We Do)
 // ══════════════════════════════════════
+function getYouTubeId(spec) {
+  if (!spec) return '';
+  if (spec.startsWith('youtube:')) return spec.slice('youtube:'.length);
+
+  try {
+    const url = new URL(spec);
+    if (url.hostname.includes('youtu.be')) return url.pathname.replace('/', '');
+    if (url.hostname.includes('youtube.com')) {
+      if (url.searchParams.get('v')) return url.searchParams.get('v');
+      const embedMatch = url.pathname.match(/\/(?:embed|shorts)\/([^/?]+)/);
+      if (embedMatch) return embedMatch[1];
+    }
+  } catch (e) {
+    return spec.includes(':') ? '' : spec;
+  }
+
+  return '';
+}
+
 function buildServiceVideoEmbed(spec) {
-  const [type, id] = spec.split(':');
-  if (type === 'youtube' && id) {
-    const src = `https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+  const youtubeId = getYouTubeId(spec);
+  if (youtubeId) {
+    const src = `https://www.youtube.com/embed/${encodeURIComponent(youtubeId)}?autoplay=1&rel=0`;
     return `<iframe src="${src}" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
   }
+
+  const [type, id] = spec.split(':');
   if (type === 'instagram' && id) {
     const src = `https://www.instagram.com/reel/${encodeURIComponent(id)}/embed`;
     return `<iframe src="${src}" title="Instagram reel" allowfullscreen scrolling="no"></iframe>`;
   }
   return '';
+}
+
+function initStoryVideoThumbnails() {
+  document.querySelectorAll('.story-video-card__media[data-service-video]').forEach(trigger => {
+    const youtubeId = getYouTubeId(trigger.dataset.serviceVideo);
+    if (!youtubeId) return;
+
+    const thumbnail = `https://img.youtube.com/vi/${encodeURIComponent(youtubeId)}/hqdefault.jpg`;
+    trigger.style.backgroundImage = `linear-gradient(180deg, rgba(10,10,10,0.08) 0%, rgba(10,10,10,0.82) 100%), url('${thumbnail}')`;
+    trigger.style.backgroundSize = 'cover';
+    trigger.style.backgroundPosition = 'center';
+    trigger.classList.add('has-youtube-thumbnail');
+  });
 }
 
 function openServiceVideoModal(spec) {
@@ -518,6 +552,8 @@ function closeServiceVideoModal() {
 function initServiceVideos() {
   const modal = document.getElementById('service-video-modal');
   if (!modal) return;
+
+  initStoryVideoThumbnails();
 
   document.querySelectorAll('[data-service-video]').forEach(trigger => {
     trigger.addEventListener('click', () => {
