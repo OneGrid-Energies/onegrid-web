@@ -20,8 +20,9 @@
   --text-muted: #9C9A8E;
   --border-color: #D8D6CC;
   --nav-scrolled-bg: rgba(255, 255, 255, 0.96);
-  --font-display: 'ITC Avant Garde Gothic Std', 'ITC Avant Garde Gothic Pro', 'Avant Garde', 'Century Gothic', sans-serif;
-  --font-body: 'ITC Avant Garde Gothic Std', 'ITC Avant Garde Gothic Pro', 'Avant Garde', 'Century Gothic', sans-serif;
+  /* Manrope gives the site a clear, contemporary and highly legible voice. */
+  --font-display: 'Manrope', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-body: 'Manrope', 'Avenir Next', 'Segoe UI', sans-serif;
   --nav-h: 72px;
   --section-pad: clamp(60px, 8vw, 120px);
   --radius-sm: 8px;
@@ -58,6 +59,7 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -106,7 +108,7 @@ body {
   letter-spacing: -0.03em;
   margin: 0 0 20px;
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .intro-video__subtitle {
@@ -121,7 +123,7 @@ body {
 .display-xl {
   font-family: var(--font-display);
   font-size: clamp(52px, 8vw, 110px);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.03em;
 }
@@ -369,7 +371,11 @@ body {
 }
 .hero-eyebrow-line { width: 40px; height: 1px; background: var(--yellow); }
 .hero-headline {
-  color: white; margin-bottom: 12px;
+  color: white;
+  /* Deliberately larger than the shared display treatment to anchor the home hero. */
+  font-size: clamp(64px, 11vw, 160px);
+  line-height: 0.9;
+  margin-bottom: 20px;
   opacity: 0; animation: fadeUp 0.9s 0.4s var(--transition) forwards;
 }
 .hero-headline .yellow { color: var(--yellow); }
@@ -401,7 +407,7 @@ body {
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 .hero-stat-num {
-  font-family: var(--font-display); font-weight: 900;
+  font-family: var(--font-display); font-weight: 800;
   font-size: clamp(28px, 3.5vw, 44px);
   color: var(--yellow); line-height: 1;
 }
@@ -510,7 +516,7 @@ body {
 
 .vision-statement-title {
   font-size: clamp(22px, 2.8vw, 32px);
-  font-weight: 900;
+  font-weight: 800;
   font-family: var(--font-display);
   color: #ffffff;
   margin: 0;
@@ -903,7 +909,7 @@ body {
 .impact-bg-text {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--font-display); font-weight: 900;
+  font-family: var(--font-display); font-weight: 800;
   font-size: clamp(120px, 20vw, 280px);
   color: rgba(0,0,0,0.04); white-space: nowrap;
   pointer-events: none; user-select: none;
@@ -918,7 +924,7 @@ body {
 }
 .impact-card:hover { background: rgba(0,0,0,0.08); }
 .impact-num {
-  font-family: var(--font-display); font-weight: 900;
+  font-family: var(--font-display); font-weight: 800;
   font-size: clamp(32px, 4vw, 56px);
   color: var(--black); line-height: 1; margin-bottom: 8px;
 }
@@ -1246,7 +1252,7 @@ footer {
 }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
 .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-.footer-logo-text { font-family: var(--font-display); font-weight: 900; font-size: 20px; color: white; }
+.footer-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 20px; color: white; }
 .footer-desc { font-size: 14px; line-height: 1.7; max-width: 280px; }
 .footer-heading { color: white; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
