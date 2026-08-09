@@ -670,6 +670,41 @@ function initServiceVideos() {
 }
 
 // ══════════════════════════════════════
+// SOLAR QUOTE PAGE
+// ══════════════════════════════════════
+function formatNaira(value) {
+  return '₦' + Math.round(value).toLocaleString('en-NG');
+}
+
+function initQuotePage() {
+  const fuelSpend = document.getElementById('fuel-spend');
+  const generatorHours = document.getElementById('generator-hours');
+  const preferredPlan = document.getElementById('preferred-plan');
+  if (!fuelSpend || !generatorHours) return;
+
+  const updateSavings = () => {
+    const monthly = Number(fuelSpend.value);
+    const hours = Number(generatorHours.value);
+    const estimatedSolarMonthlyCost = hours * 1000;
+    document.getElementById('fuel-spend-output').textContent = formatNaira(monthly);
+    document.getElementById('generator-hours-output').textContent = hours + 'hrs';
+    document.getElementById('five-year-savings').textContent = formatNaira(Math.max(0, monthly - estimatedSolarMonthlyCost) * 60);
+    document.getElementById('monthly-spend').textContent = formatNaira(monthly);
+    document.getElementById('yearly-spend').textContent = formatNaira(monthly * 12);
+    document.getElementById('solar-monthly-cost').textContent = formatNaira(estimatedSolarMonthlyCost);
+  };
+
+  fuelSpend.addEventListener('input', updateSavings);
+  generatorHours.addEventListener('input', updateSavings);
+  document.querySelectorAll('[data-quote-plan]').forEach(plan => {
+    plan.addEventListener('click', () => {
+      if (preferredPlan) preferredPlan.value = plan.dataset.quotePlan;
+    });
+  });
+  updateSavings();
+}
+
+// ══════════════════════════════════════
 // INIT
 // ══════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
@@ -682,6 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initIntroVideo();
   initServiceVideos();
+  initQuotePage();
 
   const hero = document.querySelector('.hero');
   if (hero) {

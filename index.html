@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781616565/ONEGRID_WHITE_PNG_nhbudu.png">
 <link rel="preconnect" href="https://img.youtube.com" crossorigin>
 <link rel="dns-prefetch" href="https://img.youtube.com">
-<link rel="stylesheet" href="styles.0991105d.css">
+<link rel="stylesheet" href="styles.b60bd599.css">
 <script>
 (function () {
   var saved = localStorage.getItem('onegrid-theme');
@@ -1161,10 +1161,44 @@
       <span class="tag tag-yellow">Solar Installations</span>
       <h1 class="display-xl">Power your world with <span>solar.</span></h1>
       <p>Tell us what you need and our team will prepare a solar installation quote tailored to your home, business, or community project.</p>
+      <div class="quote-hero__actions"><a class="btn btn-primary" href="#quote-form">Get Your Free Quote</a><a class="btn btn-outline-white" href="#quote-packages">View Plans</a></div>
+      <div class="quote-hero__stats"><div><strong>Custom</strong><span>Solar solutions</span></div><div><strong>Clean</strong><span>Reliable energy</span></div><div><strong>Local</strong><span>Expert support</span></div></div>
     </div>
   </div>
 
-  <section class="section quote-section">
+  <section class="quote-benefits section">
+    <div class="container"><div class="quote-section-heading"><span class="tag tag-outline">Benefits</span><h2 class="display-md">Why switch to solar?</h2></div>
+      <div class="quote-benefits__grid">
+        <article><span>◈</span><div><h3>Reduce generator costs</h3><p>Replace unpredictable fuel expenses with dependable solar power.</p></div></article>
+        <article><span>◌</span><div><h3>Silence the noise</h3><p>Enjoy cleaner, quieter energy for your home or business.</p></div></article>
+        <article><span>ϟ</span><div><h3>Power through outages</h3><p>Battery storage keeps essential appliances running when the grid fails.</p></div></article>
+        <article><span>⌁</span><div><h3>Protect appliances</h3><p>Stable power helps safeguard the equipment you rely on every day.</p></div></article>
+        <article><span>↗</span><div><h3>Build lasting value</h3><p>A well-designed solar system is an investment in your property and productivity.</p></div></article>
+        <article><span>♧</span><div><h3>Choose cleaner energy</h3><p>Lower your reliance on fossil fuels and support a healthier future.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-packages section" id="quote-packages">
+    <div class="container"><div class="quote-section-heading quote-section-heading--center"><span class="tag tag-yellow">Solar plans</span><h2 class="display-md">Simple, transparent starting points.</h2><p>Every system is confirmed through a site assessment before installation.</p></div>
+      <div class="quote-package-grid">
+        <article class="quote-package"><h3>Starter</h3><p class="quote-package__subtitle">Perfect for 2-bedroom flats</p><p class="quote-package__size">3.5 <span>kVA</span></p><p class="quote-package__price">₦1,800,000</p><ul><li>3.5kVA Hybrid Inverter</li><li>4 × 450W Mono Panels</li><li>2 × 200Ah Lithium Battery</li><li>5-Year Warranty</li><li>Free Installation</li></ul><a href="#quote-form" class="quote-plan-button" data-quote-plan="3.5kVA Starter">Select plan</a></article>
+        <article class="quote-package quote-package--featured"><span class="quote-package__badge">Popular</span><h3>Standard</h3><p class="quote-package__subtitle">Ideal for 3-bedroom homes</p><p class="quote-package__size">5 <span>kVA</span></p><p class="quote-package__price">₦2,800,000</p><ul><li>5kVA Deye Hybrid Inverter</li><li>8 × 450W Mono Panels</li><li>2 × 5kWh Lithium Battery</li><li>5-Year Warranty</li><li>Smart Energy Monitor</li></ul><a href="#quote-form" class="quote-plan-button" data-quote-plan="5kVA Standard">Select plan</a></article>
+        <article class="quote-package"><h3>Premium</h3><p class="quote-package__subtitle">Built for duplexes</p><p class="quote-package__size">10 <span>kVA</span></p><p class="quote-package__price">₦5,500,000</p><ul><li>10kVA Deye Hybrid Inverter</li><li>16 × 450W Mono Panels</li><li>4 × 5kWh Lithium Battery</li><li>7-Year Warranty</li><li>Smart Home Integration</li></ul><a href="#quote-form" class="quote-plan-button" data-quote-plan="10kVA Premium">Select plan</a></article>
+        <article class="quote-package"><h3>Commercial</h3><p class="quote-package__subtitle">For offices and businesses</p><p class="quote-package__size">15+ <span>kVA</span></p><p class="quote-package__price">₦8,500,000</p><ul><li>15kVA+ Inverter System</li><li>24+ × 450W Mono Panels</li><li>6 × 5kWh Lithium Battery</li><li>10-Year Warranty</li><li>Remote Monitoring</li></ul><a href="#quote-form" class="quote-plan-button" data-quote-plan="15kVA+ Commercial">Select plan</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-payment section"><div class="container"><div class="quote-section-heading quote-section-heading--center"><span class="tag tag-outline">Payment</span><h2 class="display-md">Pay outright or spread it out.</h2></div><div class="quote-payment__grid"><article><span>₦</span><h3>Outright purchase</h3><p>Pay once and own your system outright.</p></article><article><span>◫</span><h3>6–12 month plan</h3><p>Ask our team about available installment options.</p></article><article><span>⌂</span><h3>Bank financing</h3><p>Discuss financing options for qualifying projects.</p></article></div></div></section>
+
+  <section class="quote-calculator section"><div class="container quote-calculator__grid"><div><span class="tag tag-yellow">Savings calculator</span><h2 class="display-md">See what generator costs add up to.</h2><p>Use your current generator spend to get a simple view of potential five-year savings.</p><label class="quote-range-label">Monthly fuel spend <output id="fuel-spend-output">₦150,000</output></label><input id="fuel-spend" class="quote-range" type="range" min="20000" max="500000" step="10000" value="150000"><div class="quote-range-scale"><span>₦20K</span><span>₦500K</span></div><label class="quote-range-label">Generator hours / day <output id="generator-hours-output">12hrs</output></label><input id="generator-hours" class="quote-range" type="range" min="2" max="24" step="1" value="12"><div class="quote-range-scale"><span>2hrs</span><span>24hrs</span></div></div><aside class="quote-savings-card"><p>Estimated 5-year savings</p><strong id="five-year-savings">₦8,280,000</strong><span>compared with your current generator spend</span><div><p><span>Monthly fuel spend</span><b id="monthly-spend">₦150,000</b></p><p><span>Yearly fuel spend</span><b id="yearly-spend">₦1,800,000</b></p><p><span>Estimated solar / month</span><b id="solar-monthly-cost">₦12,000</b></p></div><a class="btn btn-primary" href="#quote-form">Get a custom quote</a></aside></div></section>
+
+  <section class="quote-faq section"><div class="container container-sm"><div class="quote-section-heading quote-section-heading--center"><span class="tag tag-outline">FAQ</span><h2 class="display-md">Questions, answered.</h2></div><div class="quote-faq__list"><details><summary>How much does a solar system cost?</summary><p>System costs depend on your energy needs, equipment specification, and site requirements. The plans above provide indicative starting points; your final quote follows an assessment.</p></details><details><summary>Can solar replace my generator completely?</summary><p>With the right system size and battery storage, solar can cover the power needs identified during your assessment.</p></details><details><summary>What happens in rainy season?</summary><p>Solar systems use battery storage and still generate from diffused daylight. We recommend the right capacity for reliable year-round use.</p></details><details><summary>How long does installation take?</summary><p>Timing depends on system size and site readiness. Our team confirms the installation schedule with your quote.</p></details><details><summary>Do you offer payment options?</summary><p>Ask the OneGrid team about available payment and financing options for your selected system.</p></details></div></div></section>
+
+  <section class="quote-promises section"><div class="container"><div class="quote-section-heading quote-section-heading--center"><span class="tag tag-yellow">Our promise</span><h2 class="display-md">Support that stays with you.</h2></div><div class="quote-promises__grid"><article><span>✓</span><h3>Quality equipment</h3><p>We specify solar components to suit your actual energy needs.</p></article><article><span>↻</span><h3>Clear process</h3><p>You will understand the recommended system before work begins.</p></article><article><span>⌕</span><h3>Expert installation</h3><p>Our team handles the journey from assessment to installation.</p></article><article><span>◉</span><h3>Ongoing support</h3><p>We’re here to help you get the most from your system.</p></article></div></div></section>
+
+  <section class="section quote-section" id="quote-form">
     <div class="container quote-grid">
       <aside class="quote-overview reveal">
         <span class="tag tag-outline">A simple process</span>
@@ -1195,6 +1229,7 @@
           <label class="quote-form__full">Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
           <label>Property type<select name="property_type" required><option value="" selected disabled>Select a property type</option><option>Home / Residential</option><option>Business / Commercial</option><option>School</option><option>Healthcare centre</option><option>Community project</option><option>Other</option></select></label>
           <label>Location<input type="text" name="location" autocomplete="address-level2" placeholder="City and state" required></label>
+          <label class="quote-form__full">Preferred solar plan <select name="preferred_plan" id="preferred-plan"><option value="">Not sure yet — help me choose</option><option>3.5kVA Starter</option><option>5kVA Standard</option><option>10kVA Premium</option><option>15kVA+ Commercial</option></select></label>
           <label class="quote-form__full">What would you like to power?<textarea name="energy_needs" rows="4" placeholder="For example: lights, fans, fridge, air conditioners, computers…" required></textarea></label>
           <label class="quote-form__full">Additional details <span>(optional)</span><textarea name="message" rows="3" placeholder="Tell us anything else that will help us prepare your quote."></textarea></label>
         </div>
@@ -1422,6 +1457,6 @@
   </div>
 </div>
 
-<script src="script.9a44a6ef.js" defer></script>
+<script src="script.88aa72c2.js" defer></script>
 </body>
 </html>
