@@ -334,6 +334,14 @@ const BACKGROUND_VIDEOS = {
     subtitle: 'This shared intro video opens the Stories of Hope page before you continue into the people and communities behind OneGrid Energies.',
     target: '#page-stories'
   },
+  quote: {
+    src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4',
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg',
+    label: 'Solar Installations',
+    title: 'Let’s build the right solar solution for you.',
+    subtitle: 'Share your energy needs and receive a tailored solar installation quote from OneGrid Energies.',
+    target: '#page-quote .page-hero'
+  },
   contact: {
     src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4',
     poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg',

@@ -1671,6 +1671,44 @@ footer {
 }
 .contact-detail-email:hover { color: var(--yellow-dark); }
 
+/* ──────────────────── SOLAR QUOTE PAGE ──────────────────── */
+.quote-hero { min-height: 54vh; }
+.quote-hero__content { position: relative; padding-top: 140px; padding-bottom: 72px; }
+.quote-hero__content .tag { margin-bottom: 24px; }
+.quote-hero__content h1 { max-width: 880px; margin-bottom: 24px; color: white; }
+.quote-hero__content h1 span { color: var(--yellow); }
+.quote-hero__content > p { max-width: 610px; color: rgba(255,255,255,0.68); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.7; }
+.quote-section { background: var(--bg-surface); }
+.quote-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(40px, 7vw, 112px); align-items: start; }
+.quote-overview { padding-top: 12px; }
+.quote-overview .tag { margin-bottom: 22px; }
+.quote-overview h2 { margin-bottom: 22px; }
+.quote-overview > p { color: var(--text-secondary); font-size: 16px; line-height: 1.75; }
+.quote-steps { display: grid; gap: 24px; margin: 36px 0; list-style: none; counter-reset: quote-step; }
+.quote-steps li { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
+.quote-steps li > span { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--yellow); color: var(--black); font-size: 12px; font-weight: 800; }
+.quote-steps strong { display: block; color: var(--text-primary); font-size: 15px; font-weight: 700; margin: 2px 0 5px; }
+.quote-steps p { color: var(--text-secondary); font-size: 14px; line-height: 1.55; }
+.quote-assurance { display: flex; gap: 13px; align-items: flex-start; padding: 18px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); }
+.quote-assurance svg { flex: 0 0 auto; width: 22px; height: 22px; color: var(--yellow-dark); }
+.quote-assurance p { color: var(--text-secondary); font-size: 13px; line-height: 1.55; }
+.quote-form { padding: clamp(26px, 4vw, 46px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); background: var(--bg-card); box-shadow: 0 18px 48px rgba(0,0,0,0.08); }
+.quote-form__heading { margin-bottom: 30px; }
+.quote-form__heading .tag { margin-bottom: 16px; }
+.quote-form__heading h2 { color: var(--text-primary); font-family: var(--font-display); font-size: clamp(25px, 3vw, 34px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 10px; }
+.quote-form__heading p { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
+.quote-form__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.quote-form label { color: var(--text-primary); display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.quote-form label span { color: var(--text-muted); font-weight: 500; }
+.quote-form input, .quote-form select, .quote-form textarea { display: block; width: 100%; margin-top: 8px; padding: 13px 15px; border: 1.5px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-surface); color: var(--text-primary); font: 400 15px/1.4 var(--font-body); transition: border-color 0.2s, box-shadow 0.2s; }
+.quote-form textarea { resize: vertical; min-height: 104px; }
+.quote-form input::placeholder, .quote-form textarea::placeholder { color: var(--text-muted); }
+.quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus { outline: none; border-color: var(--yellow-dark); box-shadow: 0 0 0 3px rgba(255,212,0,0.18); }
+.quote-form__full { grid-column: 1 / -1; }
+.quote-form__submit { width: 100%; justify-content: center; margin-top: 26px; padding: 16px 24px; font-size: 16px; }
+.quote-form__submit svg { width: 18px; height: 18px; }
+[data-theme="dark"] .quote-form { box-shadow: 0 18px 48px rgba(0,0,0,0.3); }
+
 /* ──────────────────── ANIMATIONS ──────────────────── */
 .reveal {
   opacity: 0; transform: translateY(32px);
@@ -1702,7 +1740,7 @@ footer {
   :root { --section-pad: 60px; --nav-h: 64px; }
   .intro-video { min-height: 55vh; }
   .intro-video__title { font-size: clamp(32px, 8vw, 48px); }
-  .grid-2, .contact-grid, .contact-page-grid, .about-hero-inner,
+  .grid-2, .contact-grid, .contact-page-grid, .quote-grid, .about-hero-inner,
   .story-card, .gallery-grid, .story-founder-grid, .oneplastic-split { grid-template-columns: 1fr; }
   .oneplastic-split--reverse > :first-child,
   .oneplastic-split--reverse > :last-child { order: initial; }
@@ -1751,6 +1789,8 @@ footer {
   .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
   .whatsapp-float svg { width: 24px; height: 24px; }
   .contact-name-row { grid-template-columns: 1fr !important; }
+  .quote-form__fields { grid-template-columns: 1fr; }
+  .quote-form__full { grid-column: auto; }
 }
 @media (max-width: 480px) {
   .hero-actions { flex-direction: column; }

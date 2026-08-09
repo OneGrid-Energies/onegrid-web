@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="https://res.cloudinary.com/dj2ciluyx/image/upload/v1781616565/ONEGRID_WHITE_PNG_nhbudu.png">
 <link rel="preconnect" href="https://img.youtube.com" crossorigin>
 <link rel="dns-prefetch" href="https://img.youtube.com">
-<link rel="stylesheet" href="styles.42581d8c.css">
+<link rel="stylesheet" href="styles.0991105d.css">
 <script>
 (function () {
   var saved = localStorage.getItem('onegrid-theme');
@@ -64,6 +64,7 @@
       <li><a class="nav-link" href="#" onclick="navigateTo('about'); return false;">About</a></li>
       <li><a class="nav-link" href="#" onclick="navigateTo('oneplastic'); return false;">OnePlastic</a></li>
       <li><a class="nav-link" href="#" onclick="navigateTo('stories'); return false;">Stories of Hope</a></li>
+      <li><a class="nav-link" href="#" onclick="navigateTo('quote'); return false;">Quote</a></li>
       <li><a class="nav-link" href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -71,7 +72,7 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
-      <a href="#" class="btn btn-primary btn-sm" onclick="navigateTo('contact'); return false;">Partner With Us</a>
+      <a href="#" class="btn btn-primary btn-sm" onclick="navigateTo('quote'); return false;">Get a Quote</a>
     </div>
     <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -91,8 +92,9 @@
   <a href="#" onclick="navigateTo('about'); toggleMobileNav(); return false;">About</a>
   <a href="#" onclick="navigateTo('oneplastic'); toggleMobileNav(); return false;">OnePlastic</a>
   <a href="#" onclick="navigateTo('stories'); toggleMobileNav(); return false;">Stories of Hope</a>
+  <a href="#" onclick="navigateTo('quote'); toggleMobileNav(); return false;">Get a Solar Quote</a>
   <a href="#" onclick="navigateTo('contact'); toggleMobileNav(); return false;">Contact</a>
-  <a href="#" onclick="navigateTo('contact'); toggleMobileNav(); return false;" style="color:var(--black); font-weight:600; background:var(--yellow); border-radius:8px; padding:14px; margin-top:12px; border-bottom:none;">Partner With Us</a>
+  <a href="#" onclick="navigateTo('quote'); toggleMobileNav(); return false;" style="color:var(--black); font-weight:600; background:var(--yellow); border-radius:8px; padding:14px; margin-top:12px; border-bottom:none;">Get a Quote</a>
 </div>
 
 <!-- WhatsApp Float -->
@@ -307,7 +309,7 @@
           <div class="service-tagline">Solar Installations</div>
           <h3>Reliable Energy Solutions</h3>
           <p>Custom solar installations for homes, schools, churches, healthcare centres and small businesses — clean, reliable power where the grid fails.</p>
-          <a href="#" onclick="navigateTo('contact'); return false;">Get A Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" onclick="navigateTo('quote'); return false;">Get A Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
       <article class="service-card service-card--media service-card--thumb-only">
@@ -1147,6 +1149,62 @@
 </div><!-- /page-stories -->
 
 <!-- ═══════════════════════════════════════════════════ -->
+<!-- ═════════════════ QUOTE PAGE ══════════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page" id="page-quote">
+  <div class="page-hero quote-hero">
+    <div class="page-hero-bg">
+      <div class="page-hero-pattern"></div>
+      <div class="page-hero-glow"></div>
+    </div>
+    <div class="container quote-hero__content">
+      <span class="tag tag-yellow">Solar Installations</span>
+      <h1 class="display-xl">Power your world with <span>solar.</span></h1>
+      <p>Tell us what you need and our team will prepare a solar installation quote tailored to your home, business, or community project.</p>
+    </div>
+  </div>
+
+  <section class="section quote-section">
+    <div class="container quote-grid">
+      <aside class="quote-overview reveal">
+        <span class="tag tag-outline">A simple process</span>
+        <h2 class="display-md">A system designed around your energy needs.</h2>
+        <p>Every installation starts with understanding how you use power. Share the basics below and we’ll recommend the right next step.</p>
+        <ol class="quote-steps">
+          <li><span>01</span><div><strong>Share your requirements</strong><p>Tell us about your property, location, and appliances.</p></div></li>
+          <li><span>02</span><div><strong>Receive expert guidance</strong><p>Our team reviews your request and discusses the best fit.</p></div></li>
+          <li><span>03</span><div><strong>Get your tailored quote</strong><p>We provide a clear recommendation for your installation.</p></div></li>
+        </ol>
+        <div class="quote-assurance">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <p>Solar solutions for homes, businesses, schools, healthcare centres, and communities.</p>
+        </div>
+      </aside>
+
+      <form class="quote-form reveal reveal-delay-2" action="https://formspree.io/f/xojgwple" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="_subject" value="New solar installation quote request from the OneGrid website">
+        <input type="hidden" name="request_type" value="Solar installation quote">
+        <div class="quote-form__heading">
+          <span class="tag tag-yellow">Request a quote</span>
+          <h2>Let’s plan your solar solution.</h2>
+          <p>We’ll respond with the information needed to move your project forward.</p>
+        </div>
+        <div class="quote-form__fields">
+          <label>Full name<input type="text" name="name" autocomplete="name" placeholder="Your full name" required></label>
+          <label>Phone number<input type="tel" name="phone" autocomplete="tel" placeholder="Your phone number" required></label>
+          <label class="quote-form__full">Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Property type<select name="property_type" required><option value="" selected disabled>Select a property type</option><option>Home / Residential</option><option>Business / Commercial</option><option>School</option><option>Healthcare centre</option><option>Community project</option><option>Other</option></select></label>
+          <label>Location<input type="text" name="location" autocomplete="address-level2" placeholder="City and state" required></label>
+          <label class="quote-form__full">What would you like to power?<textarea name="energy_needs" rows="4" placeholder="For example: lights, fans, fridge, air conditioners, computers…" required></textarea></label>
+          <label class="quote-form__full">Additional details <span>(optional)</span><textarea name="message" rows="3" placeholder="Tell us anything else that will help us prepare your quote."></textarea></label>
+        </div>
+        <button class="btn btn-primary quote-form__submit" type="submit">Request My Solar Quote<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </form>
+    </div>
+  </section>
+</div><!-- /page-quote -->
+
+<!-- ═══════════════════════════════════════════════════ -->
 <!-- ════════════════ CONTACT PAGE ════════════════════ -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div class="page" id="page-contact">
@@ -1311,6 +1369,7 @@
           <li><a href="#" onclick="navigateTo('about'); return false;">About Us</a></li>
           <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OnePlastic</a></li>
           <li><a href="#" onclick="navigateTo('stories'); return false;">Stories of Hope</a></li>
+          <li><a href="#" onclick="navigateTo('quote'); return false;">Get a Solar Quote</a></li>
           <li><a href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
         </ul>
       </div>
@@ -1320,7 +1379,7 @@
           <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OnePlastic</a></li>
           <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OneHealth</a></li>
           <li><a href="#" onclick="navigateTo('oneplastic'); return false;">OneBox</a></li>
-          <li><a href="#" onclick="navigateTo('about'); return false;">Solar Installations</a></li>
+          <li><a href="#" onclick="navigateTo('quote'); return false;">Solar Installations</a></li>
           <li><a href="#" onclick="navigateTo('about'); return false;">Training Academy</a></li>
         </ul>
       </div>
@@ -1363,6 +1422,6 @@
   </div>
 </div>
 
-<script src="script.de5bd684.js" defer></script>
+<script src="script.9a44a6ef.js" defer></script>
 </body>
 </html>
