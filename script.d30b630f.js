@@ -84,11 +84,8 @@ function navigateTo(page) {
   }
 
   const nav = document.getElementById('nav');
-  if (page === 'home') {
-    nav.classList.add('dark-mode');
-  } else {
-    nav.classList.remove('dark-mode');
-  }
+  // All pages begin below a visual hero, so keep one consistent transparent header treatment.
+  nav.classList.add('dark-mode');
 
   setTimeout(initReveal, 100);
   updateBackgroundVideo(page);

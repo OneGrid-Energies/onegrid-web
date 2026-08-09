@@ -205,7 +205,8 @@ body {
   box-shadow: 0 1px 0 rgba(0,0,0,0.08);
 }
 #nav.dark-mode {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(10, 10, 10, 0.68);
+  backdrop-filter: blur(12px);
   color: white;
 }
 #nav.dark-mode .nav-logo { color: white; }
@@ -215,13 +216,15 @@ body {
 #nav.dark-mode .btn-outline { border-color: rgba(255,255,255,0.65); color: white; }
 #nav.dark-mode .btn-outline:hover { background: white; color: var(--black); }
 #nav.dark-mode.scrolled {
-  color: var(--black);
-  background: rgba(255, 255, 255, 0.96);
+  color: var(--text-primary);
+  background: var(--nav-scrolled-bg);
 }
-#nav.dark-mode.scrolled .nav-logo { color: var(--black); }
-#nav.dark-mode.scrolled .nav-link { color: var(--gray-600); }
-#nav.dark-mode.scrolled .nav-link:hover { color: var(--black); }
-#nav.dark-mode.scrolled .btn-outline { border-color: var(--black); color: var(--black); }
+#nav.dark-mode.scrolled .nav-logo { color: var(--text-primary); }
+#nav.dark-mode.scrolled .nav-link { color: var(--text-secondary); }
+#nav.dark-mode.scrolled .nav-link:hover,
+#nav.dark-mode.scrolled .nav-link.active { color: var(--yellow-dark); }
+#nav.dark-mode.scrolled .btn-outline { border-color: var(--text-primary); color: var(--text-primary); }
+#nav.dark-mode.scrolled .theme-toggle { border-color: var(--border-color); color: var(--text-primary); }
 .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .nav-logo {
   text-decoration: none;
