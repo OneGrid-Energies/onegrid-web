@@ -73,17 +73,49 @@ const PAGE_ROUTES = {
   about: '/about',
   oneplastic: '/oneplastic',
   stories: '/stories-of-hope',
+  recognitions: '/recognitions',
   quote: '/quote',
   contact: '/contact'
 };
 
-const PAGE_TITLES = {
-  home: 'OneGrid Energies | We Can Reduce Darkness',
-  about: 'About | OneGrid Energies',
-  oneplastic: 'OnePlastic | OneGrid Energies',
-  stories: 'Stories of Hope | OneGrid Energies',
-  quote: 'Get a Quote | OneGrid Energies',
-  contact: 'Contact | OneGrid Energies'
+const SITE_URL = 'https://onegridenergies.com';
+const DEFAULT_SOCIAL_IMAGE = 'https://res.cloudinary.com/dj2ciluyx/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1784564050/photo4_cof80h.jpg';
+const PAGE_METADATA = {
+  home: {
+    path: '/',
+    title: 'OneGrid Energies | Clean Energy That Reduces Darkness',
+    description: 'OneGrid Energies delivers clean energy, solar installations, circular innovation, and community impact solutions that reduce darkness across Nigeria.'
+  },
+  about: {
+    path: '/about',
+    title: 'About OneGrid Energies | Clean Energy & Circular Innovation',
+    description: 'Discover how OneGrid Energies turns clean-energy innovation, recycling, and human empowerment into practical impact across Nigeria.'
+  },
+  oneplastic: {
+    path: '/oneplastic',
+    title: 'OnePlastic Initiative | OneGrid Energies',
+    description: 'OnePlastic transforms waste plastic bottles and discarded batteries into solar-powered lanterns for communities without reliable electricity.'
+  },
+  stories: {
+    path: '/stories-of-hope',
+    title: 'Stories of Hope | OneGrid Energies',
+    description: 'Meet the people and communities gaining safer, cleaner light through OneGrid Energies and the OnePlastic initiative.'
+  },
+  recognitions: {
+    path: '/recognitions',
+    title: 'Recognition, Milestones & Media | OneGrid Energies',
+    description: 'Explore OneGrid Energies’ recognitions, milestones, and media coverage for clean energy, circular innovation, and community impact.'
+  },
+  quote: {
+    path: '/quote',
+    title: 'Get a Solar Quote | OneGrid Energies',
+    description: 'Get a tailored solar or CCTV installation quote from OneGrid Energies for your home, business, school, or community.'
+  },
+  contact: {
+    path: '/contact',
+    title: 'Contact OneGrid Energies | Partner With Us',
+    description: 'Contact OneGrid Energies to discuss solar solutions, clean-energy partnerships, community impact, or media enquiries.'
+  }
 };
 
 function getPageFromPath(pathname = window.location.pathname) {
@@ -97,14 +129,18 @@ function getPageFromPath(pathname = window.location.pathname) {
 }
 
 function updateDocumentMetadata(page) {
-  document.title = PAGE_TITLES[page] || PAGE_TITLES.home;
-  let canonical = document.querySelector('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement('link');
-    canonical.rel = 'canonical';
-    document.head.appendChild(canonical);
-  }
-  canonical.href = new URL(PAGE_ROUTES[page], window.location.origin).href;
+  const metadata = PAGE_METADATA[page] || PAGE_METADATA.home;
+  const canonicalUrl = new URL(metadata.path, SITE_URL).href;
+  document.title = metadata.title;
+  document.querySelector('meta[name="description"]').content = metadata.description;
+  document.querySelector('link[rel="canonical"]').href = canonicalUrl;
+  document.querySelector('meta[property="og:title"]').content = metadata.title;
+  document.querySelector('meta[property="og:description"]').content = metadata.description;
+  document.querySelector('meta[property="og:url"]').content = canonicalUrl;
+  document.querySelector('meta[property="og:image"]').content = DEFAULT_SOCIAL_IMAGE;
+  document.querySelector('meta[name="twitter:title"]').content = metadata.title;
+  document.querySelector('meta[name="twitter:description"]').content = metadata.description;
+  document.querySelector('meta[name="twitter:image"]').content = DEFAULT_SOCIAL_IMAGE;
 }
 
 function showPage(page, { scroll = true } = {}) {
@@ -367,6 +403,14 @@ const BACKGROUND_VIDEOS = {
     subtitle: 'This muted video section plays in a continuous loop before you continue down the page to the rest of the OneGrid story.',
     target: '.hero'
   },
+  recognitions: {
+    src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781117070/Background_video_1_nwdtxu.mp4',
+    poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781117070/Background_video_1_nwdtxu.jpg',
+    label: 'Recognition, Milestones & Media',
+    title: 'A journey built to reduce darkness.',
+    subtitle: 'Explore the recognitions and milestones that reflect OneGrid Energies’ work in clean energy, circular innovation and community impact.',
+    target: '#page-recognitions .page-hero'
+  },
   about: {
     src: 'https://res.cloudinary.com/dj2ciluyx/video/upload/v1781116924/Background_video_3_jshjf7.mp4',
     poster: 'https://res.cloudinary.com/dj2ciluyx/video/upload/so_0,q_auto:low,w_800,c_limit/v1781116924/Background_video_3_jshjf7.jpg',
@@ -426,6 +470,11 @@ function scrollIntroTarget() {
   const selector = cta?.dataset.introTarget || '.page.active';
   const target = document.querySelector(selector);
   if (target) target.scrollIntoView({ behavior: 'smooth' });
+}
+
+function scrollToQuoteSection(sectionId) {
+  const target = document.getElementById(sectionId);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function playBackgroundVideo(video) {
@@ -733,7 +782,51 @@ function formatNaira(value) {
   return '₦' + Math.round(value).toLocaleString('en-NG');
 }
 
+function initAwardCarousel() {
+  const carousel = document.querySelector('.quote-award__carousel');
+  if (!carousel) return;
+
+  const slides = Array.from(carousel.querySelectorAll('.quote-award__slide'));
+  const current = carousel.querySelector('[data-award-carousel-current]');
+  if (slides.length < 2) return;
+
+  let activeIndex = 0;
+  let timer;
+  const showSlide = index => {
+    activeIndex = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === activeIndex;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
+    });
+    current.textContent = activeIndex + 1;
+  };
+  const startAutoPlay = () => {
+    window.clearInterval(timer);
+    timer = window.setInterval(() => showSlide(activeIndex + 1), 6000);
+  };
+
+  carousel.querySelector('[data-award-carousel="previous"]').addEventListener('click', () => {
+    showSlide(activeIndex - 1);
+    startAutoPlay();
+  });
+  carousel.querySelector('[data-award-carousel="next"]').addEventListener('click', () => {
+    showSlide(activeIndex + 1);
+    startAutoPlay();
+  });
+  carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
+  carousel.addEventListener('mouseleave', startAutoPlay);
+  carousel.addEventListener('focusin', () => window.clearInterval(timer));
+  carousel.addEventListener('focusout', event => {
+    if (!carousel.contains(event.relatedTarget)) startAutoPlay();
+  });
+
+  showSlide(activeIndex);
+  startAutoPlay();
+}
+
 function initQuotePage() {
+  initAwardCarousel();
   const fuelSpend = document.getElementById('fuel-spend');
   const generatorHours = document.getElementById('generator-hours');
   const preferredPlan = document.getElementById('preferred-plan');
