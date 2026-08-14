@@ -68,17 +68,57 @@ function initTheme() {
 // ══════════════════════════════════════
 // NAVIGATION
 // ══════════════════════════════════════
-function navigateTo(page) {
+const PAGE_ROUTES = {
+  home: '/home',
+  about: '/about',
+  oneplastic: '/oneplastic',
+  stories: '/stories-of-hope',
+  quote: '/quote',
+  contact: '/contact'
+};
+
+const PAGE_TITLES = {
+  home: 'OneGrid Energies | We Can Reduce Darkness',
+  about: 'About | OneGrid Energies',
+  oneplastic: 'OnePlastic | OneGrid Energies',
+  stories: 'Stories of Hope | OneGrid Energies',
+  quote: 'Get a Quote | OneGrid Energies',
+  contact: 'Contact | OneGrid Energies'
+};
+
+function getPageFromPath(pathname = window.location.pathname) {
+  const path = pathname.replace(/\/+$/, '') || '/';
+  if (path === '/') return 'home';
+  const route = Object.entries(PAGE_ROUTES).find(([, value]) => value === path);
+  // Keep this short alias working for links shared before the canonical route existed.
+  if (path === '/stories') return 'stories';
+  if (path === '/home') return 'home';
+  return route ? route[0] : 'home';
+}
+
+function updateDocumentMetadata(page) {
+  document.title = PAGE_TITLES[page] || PAGE_TITLES.home;
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.appendChild(canonical);
+  }
+  canonical.href = new URL(PAGE_ROUTES[page], window.location.origin).href;
+}
+
+function showPage(page, { scroll = true } = {}) {
+  const activePage = PAGE_ROUTES[page] ? page : 'home';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
 
-  const target = document.getElementById('page-' + page);
+  const target = document.getElementById('page-' + activePage);
   if (target) {
     target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  const navLink = document.querySelector('[onclick*="navigateTo(\'' + page + '\')"]');
+  const navLink = document.querySelector('[onclick*="navigateTo(\'' + activePage + '\')"]');
   if (navLink && navLink.classList.contains('nav-link')) {
     navLink.classList.add('active');
   }
@@ -88,7 +128,27 @@ function navigateTo(page) {
   nav.classList.add('dark-mode');
 
   setTimeout(initReveal, 100);
-  updateBackgroundVideo(page);
+  updateBackgroundVideo(activePage);
+  updateDocumentMetadata(activePage);
+}
+
+function navigateTo(page) {
+  const activePage = PAGE_ROUTES[page] ? page : 'home';
+  const targetPath = PAGE_ROUTES[activePage];
+  if (window.location.pathname !== targetPath) {
+    window.history.pushState({ page: activePage }, '', targetPath);
+  }
+  showPage(activePage);
+}
+
+function initRouting() {
+  document.querySelectorAll('[onclick*="navigateTo("]').forEach(link => {
+    const match = link.getAttribute('onclick').match(/navigateTo\('([^']+)'\)/);
+    if (match && PAGE_ROUTES[match[1]]) link.setAttribute('href', PAGE_ROUTES[match[1]]);
+  });
+
+  showPage(getPageFromPath(), { scroll: false });
+  window.addEventListener('popstate', () => showPage(getPageFromPath()));
 }
 
 // ══════════════════════════════════════
@@ -677,6 +737,11 @@ function initQuotePage() {
   const fuelSpend = document.getElementById('fuel-spend');
   const generatorHours = document.getElementById('generator-hours');
   const preferredPlan = document.getElementById('preferred-plan');
+  document.querySelectorAll('[data-quote-plan]').forEach(plan => {
+    plan.addEventListener('click', () => {
+      if (preferredPlan) preferredPlan.value = plan.dataset.quotePlan;
+    });
+  });
   if (!fuelSpend || !generatorHours) return;
 
   const updateSavings = () => {
@@ -693,11 +758,6 @@ function initQuotePage() {
 
   fuelSpend.addEventListener('input', updateSavings);
   generatorHours.addEventListener('input', updateSavings);
-  document.querySelectorAll('[data-quote-plan]').forEach(plan => {
-    plan.addEventListener('click', () => {
-      if (preferredPlan) preferredPlan.value = plan.dataset.quotePlan;
-    });
-  });
   updateSavings();
 }
 
@@ -706,6 +766,7 @@ function initQuotePage() {
 // ══════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initRouting();
   initGalleryPagination();
   initLazyImages();
   initGalleryImages();
