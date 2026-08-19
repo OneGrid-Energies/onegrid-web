@@ -59,16 +59,16 @@ for EXT in "${EXTENSIONS[@]}"; do
     mv "$CURRENT_REF" "$NEW_FILE"
     echo "  -> Renamed: $CURRENT_REF -> $NEW_FILE"
 
-    # 8. Update the reference inside the HTML file
+    # 8. Update the reference inside every static route document
     if sed --version >/dev/null 2>&1; then
         # GNU sed (Linux)
-        sed -i "s/$CURRENT_REF/$NEW_FILE/g" "$HTML_FILE"
+        find . -type f -name "index.html" -exec sed -i "s/$CURRENT_REF/$NEW_FILE/g" {} +
     else
         # BSD sed (macOS)
-        sed -i "" "s/$CURRENT_REF/$NEW_FILE/g" "$HTML_FILE"
+        find . -type f -name "index.html" -exec sed -i "" "s/$CURRENT_REF/$NEW_FILE/g" {} +
     fi
 
-    echo "  -> 🎉 Successfully updated $EXT reference in $HTML_FILE!"
+    echo "  -> 🎉 Successfully updated $EXT references in all route documents!"
 done
 
 echo "Done!"

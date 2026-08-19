@@ -69,13 +69,13 @@ function initTheme() {
 // NAVIGATION
 // ══════════════════════════════════════
 const PAGE_ROUTES = {
-  home: '/home',
-  about: '/about',
-  oneplastic: '/oneplastic',
-  stories: '/stories-of-hope',
-  recognitions: '/recognitions',
-  quote: '/quote',
-  contact: '/contact'
+  home: '/',
+  about: '/about/',
+  oneplastic: '/oneplastic/',
+  stories: '/stories-of-hope/',
+  recognitions: '/recognitions/',
+  quote: '/quote/',
+  contact: '/contact/'
 };
 
 const SITE_URL = 'https://onegridenergies.com';
@@ -121,7 +121,7 @@ const PAGE_METADATA = {
 function getPageFromPath(pathname = window.location.pathname) {
   const path = pathname.replace(/\/+$/, '') || '/';
   if (path === '/') return 'home';
-  const route = Object.entries(PAGE_ROUTES).find(([, value]) => value === path);
+  const route = Object.entries(PAGE_ROUTES).find(([, value]) => value.replace(/\/+$/, '') === path);
   // Keep this short alias working for links shared before the canonical route existed.
   if (path === '/stories') return 'stories';
   if (path === '/home') return 'home';
@@ -143,38 +143,21 @@ function updateDocumentMetadata(page) {
   document.querySelector('meta[name="twitter:image"]').content = DEFAULT_SOCIAL_IMAGE;
 }
 
-function showPage(page, { scroll = true } = {}) {
-  const activePage = PAGE_ROUTES[page] ? page : 'home';
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-
-  const target = document.getElementById('page-' + activePage);
-  if (target) {
-    target.classList.add('active');
-    if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  const navLink = document.querySelector('[onclick*="navigateTo(\'' + activePage + '\')"]');
-  if (navLink && navLink.classList.contains('nav-link')) {
-    navLink.classList.add('active');
-  }
-
-  const nav = document.getElementById('nav');
-  // All pages begin below a visual hero, so keep one consistent transparent header treatment.
-  nav.classList.add('dark-mode');
-
-  setTimeout(initReveal, 100);
-  updateBackgroundVideo(activePage);
-  updateDocumentMetadata(activePage);
-}
-
 function navigateTo(page) {
   const activePage = PAGE_ROUTES[page] ? page : 'home';
   const targetPath = PAGE_ROUTES[activePage];
-  if (window.location.pathname !== targetPath) {
-    window.history.pushState({ page: activePage }, '', targetPath);
-  }
-  showPage(activePage);
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const normalizedTarget = targetPath.replace(/\/+$/, '') || '/';
+  if (currentPath !== normalizedTarget) window.location.assign(targetPath);
+}
+
+function activateCurrentPage(page) {
+  const target = document.getElementById(`page-${page}`);
+  if (!target) return;
+
+  document.querySelectorAll('.page').forEach(element => {
+    element.classList.toggle('active', element === target);
+  });
 }
 
 function initRouting() {
@@ -183,8 +166,14 @@ function initRouting() {
     if (match && PAGE_ROUTES[match[1]]) link.setAttribute('href', PAGE_ROUTES[match[1]]);
   });
 
-  showPage(getPageFromPath(), { scroll: false });
-  window.addEventListener('popstate', () => showPage(getPageFromPath()));
+  const activePage = getPageFromPath();
+  activateCurrentPage(activePage);
+  const navLink = document.querySelector('[onclick*="navigateTo(\'' + activePage + '\')"]');
+  if (navLink?.classList.contains('nav-link')) navLink.classList.add('active');
+
+  document.getElementById('nav')?.classList.add('dark-mode');
+  updateBackgroundVideo(activePage);
+  updateDocumentMetadata(activePage);
 }
 
 // ══════════════════════════════════════
@@ -602,7 +591,7 @@ function initIntroVideo() {
   }
 
   video.dataset.initialized = 'true';
-  updateBackgroundVideo('home');
+  updateBackgroundVideo(getPageFromPath());
 }
 
 // ══════════════════════════════════════
@@ -926,5 +915,3 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(initReveal, 300);
   }
 });
-
-
