@@ -1933,6 +1933,12 @@ footer {
 [data-theme="dark"] .section:not(.services-section):not(.impact-section):not(.contact-section) {
   color: var(--text-primary);
 }
+[data-theme="dark"] .quote-package h3,
+[data-theme="dark"] .quote-package__size,
+[data-theme="dark"] .quote-package .quote-package__price,
+[data-theme="dark"] .quote-package .quote-package__price del {
+  color: var(--yellow) !important;
+}
 [data-theme="dark"] .section-subtitle,
 [data-theme="dark"] .section p:not(.vision-statement-desc):not(.story-card-body) {
   color: var(--text-secondary);
@@ -2119,6 +2125,49 @@ section[id] {
 .quote-form select:hover,
 .quote-form textarea:hover {
   border-color: color-mix(in srgb, var(--border-color) 60%, var(--yellow-dark));
+}
+
+.quote-cctv aside {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(230, 191, 0, 0.7);
+  background: linear-gradient(145deg, #ffffff, #f4f3ed);
+  box-shadow: 14px 14px 0 var(--yellow);
+}
+
+.quote-cctv aside::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: '';
+  background: linear-gradient(to bottom, transparent 35%, rgba(255, 255, 255, 0.76) 63%, #ffffff 88%);
+  pointer-events: none;
+}
+
+.quote-cctv__camera {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 0;
+  width: 112%;
+  height: 74%;
+  object-fit: contain;
+  object-position: center top;
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+.quote-cctv aside > span,
+.quote-cctv aside > strong,
+.quote-cctv aside > small {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="dark"] .partner-card,
+[data-theme="dark"] .quote-partners__track img {
+  background: #ffffff;
+  border-color: #e5e7eb;
 }
 
 @media (max-width: 768px) {
