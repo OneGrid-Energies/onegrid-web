@@ -203,25 +203,40 @@ window.addEventListener('scroll', () => {
 // MOBILE NAV
 // ══════════════════════════════════════
 function toggleMobileNav() {
-  document.getElementById('mobile-nav').classList.toggle('open');
+  const mobileNav = document.getElementById('mobile-nav');
+  const toggle = document.querySelector('.hamburger');
+  if (!mobileNav || !toggle) return;
+
+  const isOpen = mobileNav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(isOpen));
 }
 
 // ══════════════════════════════════════
 // REVEAL ON SCROLL
 // ══════════════════════════════════════
+let revealObserver;
+
 function initReveal() {
   const reveals = document.querySelectorAll('.page.active .reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(element => element.classList.add('visible'));
+    return;
+  }
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
         entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }
 
   reveals.forEach(el => {
-    if (!el.classList.contains('visible')) {
-      observer.observe(el);
+    if (!el.classList.contains('visible') && el.dataset.revealObserved !== 'true') {
+      revealObserver.observe(el);
+      el.dataset.revealObserved = 'true';
     }
   });
 }
@@ -274,9 +289,27 @@ if (impactSection) impactObserver.observe(impactSection);
 const GALLERY_BATCH_SIZE = 12;
 let galleryCategory = 'all';
 let visibleGalleryItems = GALLERY_BATCH_SIZE;
+let allGalleryOrderRandomized = false;
+
+function randomizeAllGalleryOrder(items) {
+  const shuffledItems = [...items];
+
+  for (let index = shuffledItems.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffledItems[index], shuffledItems[randomIndex]] = [shuffledItems[randomIndex], shuffledItems[index]];
+  }
+
+  shuffledItems.forEach((item, index) => {
+    item.style.order = index;
+  });
+}
 
 function updateGalleryVisibility() {
   const items = Array.from(document.querySelectorAll('.gallery-item'));
+  if (galleryCategory === 'all' && !allGalleryOrderRandomized) {
+    randomizeAllGalleryOrder(items);
+    allGalleryOrderRandomized = true;
+  }
   const matchingItems = items.filter(item => galleryCategory === 'all' || item.dataset.cat === galleryCategory);
   const more = document.getElementById('gallery-more');
   const moreButton = document.getElementById('gallery-more-button');
@@ -296,11 +329,29 @@ function updateGalleryVisibility() {
 }
 
 function filterGallery(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(button => {
+    button.classList.remove('active');
+    button.setAttribute('aria-pressed', 'false');
+  });
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
   galleryCategory = cat;
+  allGalleryOrderRandomized = false;
+  if (cat !== 'all') {
+    document.querySelectorAll('.gallery-item').forEach(item => item.style.removeProperty('order'));
+  }
   visibleGalleryItems = GALLERY_BATCH_SIZE;
   updateGalleryVisibility();
+}
+
+function showGalleryCategory(category) {
+  const gallery = document.getElementById('gallery-grid');
+  const filterButton = Array.from(document.querySelectorAll('.filter-btn')).find(
+    button => button.getAttribute('onclick').includes(`filterGallery('${category}'`)
+  );
+
+  if (filterButton) filterGallery(category, filterButton);
+  gallery?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function initGalleryPagination() {
@@ -877,5 +928,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-window.addEventListener('scroll', initReveal, { passive: true });
