@@ -189,6 +189,33 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ══════════════════════════════════════
+// PAGE SCROLL CONTROLS
+// ══════════════════════════════════════
+function initPageScrollControls() {
+  const topButton = document.querySelector('[data-page-scroll="top"]');
+  const bottomButton = document.querySelector('[data-page-scroll="bottom"]');
+  if (!topButton || !bottomButton) return;
+
+  const scrollTo = position => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: position, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  };
+  const update = () => {
+    const pageHeight = document.documentElement.scrollHeight;
+    const isNearTop = window.scrollY < 240;
+    const isNearBottom = window.scrollY + window.innerHeight >= pageHeight - 16;
+    topButton.hidden = isNearTop;
+    bottomButton.hidden = isNearBottom;
+  };
+
+  topButton.addEventListener('click', () => scrollTo(0));
+  bottomButton.addEventListener('click', () => scrollTo(document.documentElement.scrollHeight));
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+}
+
+// ══════════════════════════════════════
 // MOBILE NAV
 // ══════════════════════════════════════
 function toggleMobileNav() {
@@ -822,6 +849,29 @@ function formatNaira(value) {
   return '₦' + Math.round(value).toLocaleString('en-NG');
 }
 
+function initDailyPricingCountdown() {
+  const hours = document.querySelector('[data-countdown-hours]');
+  const minutes = document.querySelector('[data-countdown-minutes]');
+  const seconds = document.querySelector('[data-countdown-seconds]');
+  if (!hours || !minutes || !seconds) return;
+
+  const formatUnit = value => String(value).padStart(2, '0');
+  const update = () => {
+    const now = new Date();
+    const deadline = new Date(now);
+    deadline.setHours(24, 0, 0, 0);
+    const remaining = Math.max(0, deadline.getTime() - now.getTime());
+    const remainingSeconds = Math.floor(remaining / 1000);
+
+    hours.textContent = formatUnit(Math.floor(remainingSeconds / 3600));
+    minutes.textContent = formatUnit(Math.floor((remainingSeconds % 3600) / 60));
+    seconds.textContent = formatUnit(remainingSeconds % 60);
+  };
+
+  update();
+  window.setInterval(update, 1000);
+}
+
 function initAwardCarousel() {
   const carousel = document.querySelector('.quote-award__carousel');
   if (!carousel) return;
@@ -866,6 +916,7 @@ function initAwardCarousel() {
 }
 
 function initQuotePage() {
+  initDailyPricingCountdown();
   initAwardCarousel();
   const fuelSpend = document.getElementById('fuel-spend');
   const generatorHours = document.getElementById('generator-hours');
@@ -900,6 +951,7 @@ function initQuotePage() {
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initRouting();
+  initPageScrollControls();
   initGalleryPagination();
   initLazyImages();
   initGalleryImages();
