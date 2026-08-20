@@ -66,7 +66,9 @@ body {
 .page-scroll-control {
   position: fixed;
   right: 18px;
-  bottom: 88px;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
   z-index: 998;
   display: grid;
   gap: 8px;
@@ -1980,7 +1982,7 @@ footer {
   .story-hero-section { min-height: auto; padding-bottom: 48px; }
   .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
   .whatsapp-float svg { width: 24px; height: 24px; }
-  .page-scroll-control { right: 20px; bottom: 82px; }
+  .page-scroll-control { right: 20px; top: 50%; bottom: auto; }
   .contact-name-row { grid-template-columns: 1fr !important; }
   .quote-form__fields { grid-template-columns: 1fr; }
   .quote-form__full { grid-column: auto; }
