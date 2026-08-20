@@ -192,9 +192,12 @@ window.addEventListener('scroll', () => {
 // PAGE SCROLL CONTROLS
 // ══════════════════════════════════════
 function initPageScrollControls() {
+  const control = document.querySelector('.page-scroll-control');
   const topButton = document.querySelector('[data-page-scroll="top"]');
   const bottomButton = document.querySelector('[data-page-scroll="bottom"]');
-  if (!topButton || !bottomButton) return;
+  if (!control || !topButton || !bottomButton) return;
+
+  let scrollStopTimer;
 
   const scrollTo = position => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -207,10 +210,20 @@ function initPageScrollControls() {
     topButton.hidden = isNearTop;
     bottomButton.hidden = isNearBottom;
   };
+  const showWhileScrolling = () => {
+    control.classList.add('is-scrolling');
+    window.clearTimeout(scrollStopTimer);
+    scrollStopTimer = window.setTimeout(() => {
+      control.classList.remove('is-scrolling');
+    }, 2000);
+  };
 
   topButton.addEventListener('click', () => scrollTo(0));
   bottomButton.addEventListener('click', () => scrollTo(document.documentElement.scrollHeight));
-  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('scroll', () => {
+    update();
+    showWhileScrolling();
+  }, { passive: true });
   window.addEventListener('resize', update, { passive: true });
   update();
 }

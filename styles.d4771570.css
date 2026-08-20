@@ -72,6 +72,16 @@ body {
   z-index: 1001;
   display: grid;
   gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+.page-scroll-control.is-scrolling {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 .page-scroll-control button {
   display: grid;
